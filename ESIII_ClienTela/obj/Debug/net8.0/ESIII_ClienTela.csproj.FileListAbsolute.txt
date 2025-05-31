@@ -28,3 +28,34 @@ C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\refint\ESII
 C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
 C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
 C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.Development.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.staticwebassets.runtime.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.exe
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.deps.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.runtimeconfig.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.pdb
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.GeneratedMSBuildEditorConfig.editorconfig
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfoInputs.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfo.cs
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.csproj.CoreCompileInputs.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.MvcApplicationPartsAssemblyInfo.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cs
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.sourcelink.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.build.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.development.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.ESIII_ClienTela.Microsoft.AspNetCore.StaticWebAssets.props
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.build.ESIII_ClienTela.props
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ESIII_ClienTela.props
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ESIII_ClienTela.props
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.pack.json
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\bundle\ESIII_ClienTela.styles.css
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\projectbundle\ESIII_ClienTela.bundle.scp.css
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\refint\ESIII_ClienTela.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
