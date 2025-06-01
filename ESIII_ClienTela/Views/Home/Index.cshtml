@@ -92,8 +92,11 @@
                     </div>
                 </td>
                 <td>
-                    <button class="btn" title="Editar">
+                    <button class="btn" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarCliente" data-id="@cliente.Id" data-nome="@cliente.Name" data-email="@cliente.Email" data-telefone="@cliente.Phone" data-status="@(cliente.Ativo ? 1 : 0)">
                         <img src="~/images/icon-pencil.png" alt="Editar" width="18" height="18" />
+                    </button>
+                    <button class="btn" title="Alterar Endereços">
+                        <img src="~/images/icon-truck.png" alt="Alterar Endereços" width="18" height="18" />
                     </button>
                     <button class="btn" title="Excluir">
                         <img src="~/images/icon-trash.png" alt="Excluir" width="18" height="18" />
@@ -137,13 +140,13 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="Name">Nome</label>
+                                <label for="Name">Nome <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="Name" name="Name" required />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="Genero">Gênero</label>
+                                <label for="Genero">Gênero <span class="text-danger">*</span></label>
                                 <select class="form-control" id="Genero" name="Genero">
                                     <option value="">Selecione</option>
                                     <option value="Masculino">Masculino</option>
@@ -154,13 +157,13 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="Nascimento">Data de Nascimento</label>
+                                <label for="Nascimento">Data de Nascimento <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control" id="Nascimento" name="Nascimento" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="CPF">CPF</label>
+                                <label for="CPF">CPF <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="CPF" name="CPF" maxlength="14" />
                             </div>
                         </div>
@@ -172,19 +175,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="Email">E-mail</label>
+                                <label for="Email">E-mail <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="Email" name="Email" required />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="Senha">Senha</label>
+                                <label for="Senha">Senha <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="Senha" name="Senha" required />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label for="ConfirmarSenha">Confirmar Senha</label>
+                                <label for="ConfirmarSenha">Confirmar Senha <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="ConfirmarSenha" name="ConfirmarSenha" required />
                             </div>
                         </div>
@@ -195,27 +198,158 @@
                     <div class="d-flex align-items-center mb-2">
                         <h5 class="mb-0">Telefones</h5>
                         <button type="button" class="btn btn-link ms-2 p-0" onclick="adicionarTelefone()" title="Adicionar Telefone">
-                            <img src="~/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
                         </button>
                     </div>
                     <div id="telefones-lista">
                         <!-- Telefones serão adicionados aqui -->
                         <div class="accordion" id="accordionTelefones">
-                            <div class="accordion-item" id="telefone-item-0">
-                                <h2 class="accordion-header" id="headingTelefone0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTelefone0" aria-expanded="false" aria-controls="collapseTelefone0">
+                        </div>
+                    </div>
+                    <hr />
+
+                    <!-- Seção: Endereços -->
+                    <div class="d-flex align-items-center mb-2">
+                        <h5 class="mb-0">Endereços</h5>
+                        <button type="button" class="btn btn-link ms-2 p-0" onclick="abrirEscolhaTipoEndereco()" title="Adicionar Endereço">
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                        </button>
+                    </div>
+
+                    <!-- Modal para escolher tipo de endereço -->
+                    <div class="modal fade" id="modalTipoEndereco" tabindex="-1" aria-labelledby="modalTipoEnderecoLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTipoEnderecoLabel">Tipo de Endereço</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-primary w-100 mb-2" id="btnAddCobranca" onclick="adicionarEndereco('Cobranca')" data-bs-dismiss="modal">Cobrança</button>
+                                    <button type="button" class="btn btn-secondary w-100" onclick="adicionarEndereco('Entrega')" data-bs-dismiss="modal">Entrega</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="enderecos-lista">
+                        <div class="accordion" id="accordionEnderecos"></div>
+                    </div>
+                    <hr />
+
+                    <!-- Seção: Cartões -->
+                    <div class="d-flex align-items-center mb-2">
+                        <h5 class="mb-0">Cartões</h5>
+                        <button type="button" class="btn btn-link ms-2 p-0" onclick="adicionarCartao()" title="Adicionar Cartão">
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                        </button>
+                    </div>
+                    <div id="cartoes-lista">
+                        <div class="accordion" id="accordionCartoes"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" disabled>Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Edição -->
+<div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="modalEditarClienteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarClienteLabel">Editar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Seção: Dados Pessoais -->
+                    <h5 class="mb-3">Dados Pessoais</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditName">Nome <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="EditName" name="EditName" value="Cliente Exemplo" required />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditGenero">Gênero <span class="text-danger">*</span></label>
+                                <select class="form-control" id="EditGenero" name="EditGenero">
+                                    <option value="">Selecione</option>
+                                    <option value="Masculino" selected>Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditNascimento">Data de Nascimento <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="EditNascimento" name="EditNascimento" value="1990-01-01" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditCPF">CPF <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="EditCPF" name="EditCPF" maxlength="14" value="123.456.789-00" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <!-- Seção: Dados Cadastrais -->
+                    <h5 class="mb-3">Dados Cadastrais</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditEmail">E-mail <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="EditEmail" name="EditEmail" value="cliente@email.com" required />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditSenha">Senha <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="EditSenha" name="EditSenha" value="123456" required />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label for="EditConfirmarSenha">Confirmar Senha <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="EditConfirmarSenha" name="EditConfirmarSenha" value="123456" required />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <!-- Seção: Telefones -->
+                    <div class="d-flex align-items-center mb-2">
+                        <h5 class="mb-0">Telefones</h5>
+                        <button type="button" class="btn btn-link ms-2 p-0" title="Adicionar Telefone" disabled>
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                        </button>
+                    </div>
+                    <div id="edit-telefones-lista">
+                        <div class="accordion" id="edit-accordionTelefones">
+                            <div class="accordion-item" id="edit-telefone-item-0">
+                                <h2 class="accordion-header" id="edit-headingTelefone0">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseTelefone0" aria-expanded="false" aria-controls="edit-collapseTelefone0">
                                         Telefone 1
                                     </button>
                                 </h2>
-                                <div id="collapseTelefone0" class="accordion-collapse collapse show" aria-labelledby="headingTelefone0" data-bs-parent="#accordionTelefones">
+                                <div id="edit-collapseTelefone0" class="accordion-collapse collapse show" aria-labelledby="edit-headingTelefone0" data-bs-parent="#edit-accordionTelefones">
                                     <div class="accordion-body">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
-                                                    <label>Tipo de Telefone</label>
-                                                    <select class="form-control" name="TipoTelefone[]">
+                                                    <label>Tipo de Telefone<span class="text-danger">*</span></label>
+                                                    <select class="form-control" name="EditTipoTelefone[]">
                                                         <option value="">Selecione</option>
-                                                        <option value="Celular">Celular</option>
+                                                        <option value="Celular" selected>Celular</option>
                                                         <option value="Residencial">Residencial</option>
                                                         <option value="Comercial">Comercial</option>
                                                     </select>
@@ -223,19 +357,19 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-2">
-                                                    <label>DDD</label>
-                                                    <input type="text" class="form-control" name="DDD[]" maxlength="3" />
+                                                    <label>DDD<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditDDD[]" maxlength="3" value="11" />
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
                                                 <div class="form-group mb-2">
-                                                    <label>Número do Telefone</label>
-                                                    <input type="text" class="form-control" name="Phone[]" />
+                                                    <label>Número do Telefone<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditPhone[]" value="90000-0000" />
                                                 </div>
                                             </div>
                                             <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerTelefone('telefone-item-0')" title="Remover Telefone">
-                                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Telefone" disabled>
+                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                                 </button>
                                             </div>
                                         </div>
@@ -249,85 +383,85 @@
                     <!-- Seção: Endereços -->
                     <div class="d-flex align-items-center mb-2">
                         <h5 class="mb-0">Endereços</h5>
-                        <button type="button" class="btn btn-link ms-2 p-0" onclick="adicionarEndereco()" title="Adicionar Endereço">
-                            <img src="~/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                        <button type="button" class="btn btn-link ms-2 p-0" title="Adicionar Endereço" disabled>
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
                         </button>
                     </div>
-                    <div id="enderecos-lista">
-                        <!-- Endereços serão adicionados aqui -->
-                        <div class="accordion" id="accordionEnderecos">
-                            <div class="accordion-item" id="endereco-item-0">
-                                <h2 class="accordion-header" id="headingEndereco0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEndereco0" aria-expanded="false" aria-controls="collapseEndereco0">
-                                        Endereço 1
+                    <div id="edit-enderecos-lista">
+                        <div class="accordion" id="edit-accordionEnderecos">
+                            <div class="accordion-item" id="edit-endereco-item-0">
+                                <h2 class="accordion-header" id="edit-headingEndereco0">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseEndereco0" aria-expanded="false" aria-controls="edit-collapseEndereco0">
+                                        Endereço Cobrança
                                     </button>
                                 </h2>
-                                <div id="collapseEndereco0" class="accordion-collapse collapse show" aria-labelledby="headingEndereco0" data-bs-parent="#accordionEnderecos">
+                                <div id="edit-collapseEndereco0" class="accordion-collapse collapse show" aria-labelledby="edit-headingEndereco0" data-bs-parent="#edit-accordionEnderecos">
                                     <div class="accordion-body">
+                                        <input type="hidden" name="EditTipoEndereco[]" value="Cobranca" />
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
-                                                    <label>Tipo de Residência</label>
-                                                    <input type="text" class="form-control" name="TipoResidencia[]" />
+                                                    <label>Tipo de Residência<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditTipoResidencia[]" value="Apartamento" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
-                                                    <label>Tipo de Logradouro</label>
-                                                    <input type="text" class="form-control" name="TipoLogradouro[]" />
+                                                    <label>Tipo de Logradouro<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditTipoLogradouro[]" value="Rua" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
-                                                    <label>Logradouro</label>
-                                                    <input type="text" class="form-control" name="Logradouro[]" />
+                                                    <label>Logradouro<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditLogradouro[]" value="Exemplo de Rua" />
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-2">
-                                                    <label>Número</label>
-                                                    <input type="text" class="form-control" name="Numero[]" />
+                                                    <label>Número<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditNumero[]" value="123" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
-                                                    <label>Bairro</label>
-                                                    <input type="text" class="form-control" name="Bairro[]" />
+                                                    <label>Bairro<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditBairro[]" value="Centro" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>CEP</label>
-                                                    <input type="text" class="form-control" name="CEP[]" maxlength="9" />
+                                                    <label>CEP<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditCEP[]" maxlength="9" value="01234-567" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>Cidade</label>
-                                                    <input type="text" class="form-control" name="Cidade[]" />
+                                                    <label>Cidade<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditCidade[]" value="São Paulo" />
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-2">
-                                                    <label>Estado</label>
-                                                    <input type="text" class="form-control" name="Estado[]" />
+                                                    <label>Estado<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditEstado[]" value="SP" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>País</label>
-                                                    <input type="text" class="form-control" name="Pais[]" />
+                                                    <label>País<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditPais[]" value="Brasil" />
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group mb-2">
                                                     <label>Observações</label>
-                                                    <textarea class="form-control" name="Observacoes[]"></textarea>
+                                                    <textarea class="form-control" name="EditObservacoes[]">Apartamento 101</textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerEndereco('endereco-item-0')" title="Remover Endereço">
-                                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Endereço" disabled>
+                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                                 </button>
                                             </div>
                                         </div>
@@ -342,48 +476,50 @@
                     <div class="d-flex align-items-center mb-2">
                         <h5 class="mb-0">Cartões</h5>
                         <button type="button" class="btn btn-link ms-2 p-0" onclick="adicionarCartao()" title="Adicionar Cartão">
-                            <img src="~/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
                         </button>
                     </div>
-                    <div id="cartoes-lista">
-                        <!-- Cartões serão adicionados aqui -->
-                        <div class="accordion" id="accordionCartoes">
-                            <div class="accordion-item" id="cartao-item-0">
-                                <h2 class="accordion-header" id="headingCartao0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCartao0" aria-expanded="false" aria-controls="collapseCartao0">
+                    <div id="edit-cartoes-lista">
+                        <div class="accordion" id="edit-accordionCartoes">
+                            <div class="accordion-item" id="edit-cartao-item-0">
+                                <h2 class="accordion-header" id="edit-headingCartao0">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseCartao0" aria-expanded="false" aria-controls="edit-collapseCartao0">
                                         Cartão 1
+                                        <span class="ms-2" id="edit-icon-principal-0" style="cursor:pointer;">
+                                            <img src="/images/icon-star-full.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
+                                        </span>
                                     </button>
                                 </h2>
-                                <div id="collapseCartao0" class="accordion-collapse collapse show" aria-labelledby="headingCartao0" data-bs-parent="#accordionCartoes">
+                                <div id="edit-collapseCartao0" class="accordion-collapse collapse show" aria-labelledby="edit-headingCartao0" data-bs-parent="#edit-accordionCartoes">
                                     <div class="accordion-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>Número do Cartão</label>
-                                                    <input type="text" class="form-control" name="NumeroCartao[]" maxlength="19" />
+                                                    <label>Número do Cartão<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditNumeroCartao[]" maxlength="19" value="1234 5678 9012 3456" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>Nome Impresso no Cartão</label>
-                                                    <input type="text" class="form-control" name="NomeCartao[]" />
+                                                    <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditNomeCartao[]" value="CLIENTE EXEMPLO" />
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
-                                                    <label>Bandeira</label>
-                                                    <input type="text" class="form-control" name="Bandeira[]" />
+                                                    <label>Bandeira<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditBandeira[]" value="Visa" />
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-2">
-                                                    <label>CVV</label>
-                                                    <input type="text" class="form-control" name="CVV[]" maxlength="4" />
+                                                    <label>CVV<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="EditCVV[]" maxlength="4" value="123" />
                                                 </div>
                                             </div>
                                             <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartao('cartao-item-0')" title="Remover Cartão">
-                                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Cartão" disabled>
+                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                                 </button>
                                             </div>
                                         </div>
@@ -395,7 +531,38 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" disabled>Salvar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Edição de Endereços -->
+<div class="modal fade" id="modalEditarEnderecos" tabindex="-1" aria-labelledby="modalEditarEnderecosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form id="formEditarEnderecos">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarEnderecosLabel">Editar Endereços</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <h5 class="mb-0">Endereços</h5>
+                        <button type="button" class="btn btn-link ms-2 p-0" onclick="adicionarEnderecoEdicao()" title="Adicionar Endereço">
+                            <img src="/images/icon-plus.png" alt="Adicionar" width="22" height="22" />
+                        </button>
+                    </div>
+                    <div id="enderecos-edicao-lista">
+                        <div class="accordion" id="accordionEnderecosEdicao">
+                            <!-- Endereços serão inseridos aqui -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Endereços</button>
                 </div>
             </form>
         </div>
@@ -405,7 +572,7 @@
 @section Scripts {
     <script>
         // Telefones
-        let telefoneCount = 1;
+        let telefoneCount = 0;
         function adicionarTelefone() {
             const idx = telefoneCount++;
             const html = `
@@ -420,7 +587,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group mb-2">
-                                    <label>Tipo de Telefone</label>
+                                    <label>Tipo de Telefone<span class="text-danger">*</span></label>
                                     <select class="form-control" name="TipoTelefone[]">
                                         <option value="">Selecione</option>
                                         <option value="Celular">Celular</option>
@@ -431,19 +598,19 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group mb-2">
-                                    <label>DDD</label>
+                                    <label>DDD<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="DDD[]" maxlength="3" />
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group mb-2">
-                                    <label>Número do Telefone</label>
+                                    <label>Número do Telefone<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Phone[]" />
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex align-items-end">
                                 <button type="button" class="btn btn-link text-danger p-0" onclick="removerTelefone('telefone-item-${idx}')" title="Remover Telefone">
-                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                 </button>
                             </div>
                         </div>
@@ -458,70 +625,83 @@
         }
 
         // Endereços
-        let enderecoCount = 1;
-        function adicionarEndereco() {
+        let enderecoCount = 0;
+        let existeCobranca = false;
+        function abrirEscolhaTipoEndereco() {
+            // Desabilita botão de cobrança se já existir
+            document.getElementById('btnAddCobranca').disabled = existeCobranca;
+            var modal = new bootstrap.Modal(document.getElementById('modalTipoEndereco'));
+            modal.show();
+        }
+
+        function adicionarEndereco(tipo) {
+            if (tipo === 'Cobranca' && existeCobranca) return;
+            if (tipo === 'Cobranca') existeCobranca = true;
+
             const idx = enderecoCount++;
+            const tipoLabel = tipo === 'Cobranca' ? 'Cobrança' : 'Entrega';
             const html = `
             <div class="accordion-item" id="endereco-item-${idx}">
                 <h2 class="accordion-header" id="headingEndereco${idx}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEndereco${idx}" aria-expanded="false" aria-controls="collapseEndereco${idx}">
-                        Endereço ${idx + 1}
+                        Endereço ${tipoLabel}
                     </button>
                 </h2>
-                <div id="collapseEndereco${idx}" class="accordion-collapse collapse" aria-labelledby="headingEndereco${idx}" data-bs-parent="#accordionEnderecos">
+                <div id="collapseEndereco${idx}" class="accordion-collapse collapse show" aria-labelledby="headingEndereco${idx}" data-bs-parent="#accordionEnderecos">
                     <div class="accordion-body">
+                        <input type="hidden" name="TipoEndereco[]" value="${tipo}" />
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group mb-2">
-                                    <label>Tipo de Residência</label>
+                                    <label>Tipo de Residência<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="TipoResidencia[]" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-2">
-                                    <label>Tipo de Logradouro</label>
+                                    <label>Tipo de Logradouro<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="TipoLogradouro[]" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-2">
-                                    <label>Logradouro</label>
+                                    <label>Logradouro<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Logradouro[]" />
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group mb-2">
-                                    <label>Número</label>
+                                    <label>Número<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Numero[]" />
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-2">
-                                    <label>Bairro</label>
+                                    <label>Bairro<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Bairro[]" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>CEP</label>
+                                    <label>CEP<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="CEP[]" maxlength="9" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>Cidade</label>
+                                    <label>Cidade<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Cidade[]" />
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group mb-2">
-                                    <label>Estado</label>
+                                    <label>Estado<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Estado[]" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>País</label>
+                                    <label>País<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Pais[]" />
                                 </div>
                             </div>
@@ -532,8 +712,8 @@
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex align-items-end">
-                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerEndereco('endereco-item-${idx}')" title="Remover Endereço">
-                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerEndereco('endereco-item-${idx}', '${tipo}')" title="Remover Endereço">
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                 </button>
                             </div>
                         </div>
@@ -542,52 +722,63 @@
             </div>`;
             document.querySelector("#accordionEnderecos").insertAdjacentHTML('beforeend', html);
         }
-        function removerEndereco(id) {
+
+        function removerEndereco(id, tipo) {
             const el = document.getElementById(id);
             if (el) el.remove();
+            if (tipo === 'Cobranca') existeCobranca = false;
         }
 
         // Cartões
-        let cartaoCount = 1;
+        let cartaoCount = 0;
+        let cartoes = [];
+
         function adicionarCartao() {
             const idx = cartaoCount++;
+            // Se for o primeiro cartão, ele será o principal
+            const isPrincipal = cartoes.length === 0;
+            cartoes.push({ id: idx, principal: isPrincipal });
+
             const html = `
             <div class="accordion-item" id="cartao-item-${idx}">
                 <h2 class="accordion-header" id="headingCartao${idx}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCartao${idx}" aria-expanded="false" aria-controls="collapseCartao${idx}">
                         Cartão ${idx + 1}
+                        <span class="ms-2" id="icon-principal-${idx}" style="cursor:pointer;" onclick="definirPrincipalCartao(${idx})" title="Definir como principal">
+                            <img src="/images/${isPrincipal ? 'icon-star-full' : 'icon-star'}.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
+                        </span>
                     </button>
                 </h2>
-                <div id="collapseCartao${idx}" class="accordion-collapse collapse" aria-labelledby="headingCartao${idx}" data-bs-parent="#accordionCartoes">
+                <div id="collapseCartao${idx}" class="accordion-collapse collapse show" aria-labelledby="headingCartao${idx}" data-bs-parent="#accordionCartoes">
                     <div class="accordion-body">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>Número do Cartão</label>
+                                    <label>Número do Cartão<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="NumeroCartao[]" maxlength="19" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>Nome Impresso no Cartão</label>
+                                    <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="NomeCartao[]" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-2">
-                                    <label>Bandeira</label>
+                                    <label>Bandeira<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="Bandeira[]" />
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group mb-2">
-                                    <label>CVV</label>
+                                    <label>CVV<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="CVV[]" maxlength="4" />
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex align-items-end">
-                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartao('cartao-item-${idx}')" title="Remover Cartão">
-                                    <img src="~/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartao('cartao-item-${idx}', ${idx})" title="Remover Cartão">
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                                 </button>
                             </div>
                         </div>
@@ -595,10 +786,570 @@
                 </div>
             </div>`;
             document.querySelector("#accordionCartoes").insertAdjacentHTML('beforeend', html);
+            atualizarIconesCartaoPrincipal();
         }
-        function removerCartao(id) {
+
+        function definirPrincipalCartao(idx) {
+            cartoes.forEach(c => c.principal = false);
+            const cartao = cartoes.find(c => c.id === idx);
+            if (cartao) cartao.principal = true;
+            atualizarIconesCartaoPrincipal();
+        }
+
+        function removerCartao(id, idx) {
             const el = document.getElementById(id);
             if (el) el.remove();
+            // Remove do array de cartões
+            const eraPrincipal = cartoes.find(c => c.id === idx && c.principal);
+            cartoes = cartoes.filter(c => c.id !== idx);
+
+            // Se o removido era o principal, define o próximo mais antigo como principal
+            if (eraPrincipal && cartoes.length > 0) {
+                cartoes.forEach(c => c.principal = false);
+                cartoes[0].principal = true;
+            }
+            atualizarIconesCartaoPrincipal();
         }
+
+        function atualizarIconesCartaoPrincipal() {
+            cartoes.forEach(c => {
+                const icon = document.getElementById(`icon-principal-${c.id}`);
+                if (icon) {
+                    icon.innerHTML = `<img src="/images/${c.principal ? 'icon-star-full' : 'icon-star'}.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />`;
+                }
+            });
+        }
+
+        // MODAL DE SUCESSO
+        function mostrarModalSucesso() {
+            const modalHtml = `
+                <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title" id="modalSucessoLabel">Sucesso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body">
+                                Cliente cadastrado com sucesso!
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
+            modal.show();
+            // Fecha o modal de cadastro ao exibir sucesso
+            var modalCadastro = bootstrap.Modal.getInstance(document.getElementById('modalCadastro'));
+            if (modalCadastro) modalCadastro.hide();
+            modal._element.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('modalSucesso').remove();
+            });
+        }
+
+        // MODAL DE ERRO
+        function mostrarModalErro(msg) {
+            const modalHtml = `
+                <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalErroLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger text-white">
+                                <h5 class="modal-title" id="modalErroLabel">Atenção</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body">
+                                ${msg}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('modalErro'));
+            modal.show();
+            modal._element.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('modalErro').remove();
+            });
+        }
+
+        // VALIDAÇÃO DO FORMULÁRIO
+        document.querySelector('#modalCadastro form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // DADOS PESSOAIS
+            const nome = document.getElementById('Name').value.trim();
+            const genero = document.getElementById('Genero').value;
+            const nascimento = document.getElementById('Nascimento').value;
+            const cpf = document.getElementById('CPF').value.trim();
+
+            if (!nome || !genero || !nascimento || !cpf) {
+                mostrarModalErro('Preencha todos os campos obrigatórios em Dados Pessoais.');
+                return;
+            }
+
+            // DADOS CADASTRAIS
+            const email = document.getElementById('Email').value.trim();
+            const senha = document.getElementById('Senha').value;
+            const confirmarSenha = document.getElementById('ConfirmarSenha').value;
+            if (!email || !senha || !confirmarSenha) {
+                mostrarModalErro('Preencha todos os campos obrigatórios em Dados Cadastrais.');
+                return;
+            }
+            if (senha !== confirmarSenha) {
+                mostrarModalErro('A senha e a confirmação de senha devem ser iguais.');
+                return;
+            }
+
+            // TELEFONES
+            const telefones = document.querySelectorAll('#accordionTelefones .accordion-item');
+            if (telefones.length === 0) {
+                mostrarModalErro('Adicione pelo menos um telefone.');
+                return;
+            }
+            for (let tel of telefones) {
+                const tipo = tel.querySelector('select[name="TipoTelefone[]"]').value;
+                const ddd = tel.querySelector('input[name="DDD[]"]').value.trim();
+                const numero = tel.querySelector('input[name="Phone[]"]').value.trim();
+                if (!tipo || !ddd || !numero) {
+                    mostrarModalErro('Preencha todos os campos obrigatórios em Telefone.');
+                    return;
+                }
+            }
+
+            // ENDEREÇOS
+            const enderecos = document.querySelectorAll('#accordionEnderecos .accordion-item');
+            let temCobranca = false, temEntrega = false;
+            if (enderecos.length === 0) {
+                mostrarModalErro('Adicione pelo menos um endereço de cobrança e um de entrega.');
+                return;
+            }
+            for (let end of enderecos) {
+                const tipo = end.querySelector('input[name="TipoEndereco[]"]').value;
+                const tipoResidencia = end.querySelector('input[name="TipoResidencia[]"]').value.trim();
+                const tipoLogradouro = end.querySelector('input[name="TipoLogradouro[]"]').value.trim();
+                const logradouro = end.querySelector('input[name="Logradouro[]"]').value.trim();
+                const numero = end.querySelector('input[name="Numero[]"]').value.trim();
+                const bairro = end.querySelector('input[name="Bairro[]"]').value.trim();
+                const cep = end.querySelector('input[name="CEP[]"]').value.trim();
+                const cidade = end.querySelector('input[name="Cidade[]"]').value.trim();
+                const estado = end.querySelector('input[name="Estado[]"]').value.trim();
+                const pais = end.querySelector('input[name="Pais[]"]').value.trim();
+                // Observações não é obrigatório
+
+                if (!tipoResidencia || !tipoLogradouro || !logradouro || !numero || !bairro || !cep || !cidade || !estado || !pais) {
+                    mostrarModalErro('Preencha todos os campos obrigatórios em Endereço.');
+                    return;
+                }
+                if (tipo === 'Cobranca') temCobranca = true;
+                if (tipo === 'Entrega') temEntrega = true;
+            }
+            if (!temCobranca || !temEntrega) {
+                mostrarModalErro('Adicione pelo menos um endereço de cobrança e um de entrega.');
+                return;
+            }
+
+            // CARTÕES
+            const cartoesEls = document.querySelectorAll('#accordionCartoes .accordion-item');
+            if (cartoesEls.length === 0) {
+                mostrarModalErro('Adicione pelo menos um cartão.');
+                return;
+            }
+            for (let cartao of cartoesEls) {
+                const numero = cartao.querySelector('input[name="NumeroCartao[]"]').value.trim();
+                const nomeCartao = cartao.querySelector('input[name="NomeCartao[]"]').value.trim();
+                const bandeira = cartao.querySelector('input[name="Bandeira[]"]').value.trim();
+                const cvv = cartao.querySelector('input[name="CVV[]"]').value.trim();
+                if (!numero || !nomeCartao || !bandeira || !cvv) {
+                    mostrarModalErro('Preencha todos os campos obrigatórios em Cartão.');
+                    return;
+                }
+            }
+
+            // Se chegou aqui, está tudo OK!
+            mostrarModalSucesso();
+        });
+
+        // Habilita o botão Salvar
+        document.querySelector('#modalCadastro button[type="submit"]').disabled = false;
+
+        // Preencher dados do cliente no modal de edição
+        var modalEditar = document.getElementById('modalEditarCliente');
+        modalEditar.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget; // Botão que acionou o modal
+            var id = button.getAttribute('data-id');
+            var nome = button.getAttribute('data-nome');
+            var email = button.getAttribute('data-email');
+            var telefone = button.getAttribute('data-telefone');
+            var status = button.getAttribute('data-status');
+
+            // Preencher campos do modal
+            modalEditar.querySelector('#EditName').value = nome;
+            modalEditar.querySelector('#EditEmail').value = email;
+            modalEditar.querySelector('#EditTelefone').value = telefone;
+            modalEditar.querySelector('#EditStatus').checked = status === '1';
+
+            // Limpar telefones e endereços existentes
+            var accordionTelefones = modalEditar.querySelector("#edit-accordionTelefones");
+            var accordionEnderecos = modalEditar.querySelector("#edit-accordionEnderecos");
+            accordionTelefones.innerHTML = '';
+            accordionEnderecos.innerHTML = '';
+
+            // Adicionar telefones e endereços do cliente (simulação)
+            for (let i = 0; i < 2; i++) {
+                adicionarTelefoneEdicao(i, 'Celular', '11', '90000-0000');
+                adicionarEnderecoEdicao(i, 'Cobranca', 'Apartamento', 'Rua', 'Exemplo de Rua', '123', 'Centro', '01234-567', 'São Paulo', 'SP', 'Brasil', 'Apartamento 101');
+            }
+        });
+
+        function adicionarTelefoneEdicao(idx, tipo, ddd, numero) {
+            const html = `
+            <div class="accordion-item" id="edit-telefone-item-${idx}">
+                <h2 class="accordion-header" id="edit-headingTelefone${idx}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseTelefone${idx}" aria-expanded="false" aria-controls="edit-collapseTelefone${idx}">
+                        Telefone ${idx + 1}
+                    </button>
+                </h2>
+                <div id="edit-collapseTelefone${idx}" class="accordion-collapse collapse" aria-labelledby="edit-headingTelefone${idx}" data-bs-parent="#edit-accordionTelefones">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Tipo de Telefone<span class="text-danger">*</span></label>
+                                    <select class="form-control" name="EditTipoTelefone[]">
+                                        <option value="">Selecione</option>
+                                        <option value="Celular" ${tipo === 'Celular' ? 'selected' : ''}>Celular</option>
+                                        <option value="Residencial" ${tipo === 'Residencial' ? 'selected' : ''}>Residencial</option>
+                                        <option value="Comercial" ${tipo === 'Comercial' ? 'selected' : ''}>Comercial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mb-2">
+                                    <label>DDD<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditDDD[]" maxlength="3" value="${ddd}" />
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group mb-2">
+                                    <label>Número do Telefone<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditPhone[]" value="${numero}" />
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end">
+                                <button type="button" class="btn btn-link text-danger p-0" onclick="removerTelefone('edit-telefone-item-${idx}')" title="Remover Telefone">
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            document.querySelector("#edit-accordionTelefones").insertAdjacentHTML('beforeend', html);
+        }
+
+        function adicionarEnderecoEdicao(idx, tipo, tipoResidencia, tipoLogradouro, logradouro, numero, bairro, cep, cidade, estado, pais, observacoes) {
+            const html = `
+            <div class="accordion-item" id="edit-endereco-item-${idx}">
+                <h2 class="accordion-header" id="edit-headingEndereco${idx}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseEndereco${idx}" aria-expanded="false" aria-controls="edit-collapseEndereco${idx}">
+                        Endereço ${tipo === 'Cobranca' ? 'Cobrança' : 'Entrega'}
+                    </button>
+                </h2>
+                <div id="edit-collapseEndereco${idx}" class="accordion-collapse collapse show" aria-labelledby="edit-headingEndereco${idx}" data-bs-parent="#edit-accordionEnderecos">
+                    <div class="accordion-body">
+                        <input type="hidden" name="EditTipoEndereco[]" value="${tipo}" />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Tipo de Residência<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditTipoResidencia[]" value="${tipoResidencia}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Tipo de Logradouro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditTipoLogradouro[]" value="${tipoLogradouro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Logradouro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditLogradouro[]" value="${logradouro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mb-2">
+                                    <label>Número<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditNumero[]" value="${numero}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Bairro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditBairro[]" value="${bairro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>CEP<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditCEP[]" maxlength="9" value="${cep}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>Cidade<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditCidade[]" value="${cidade}" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mb-2">
+                                    <label>Estado<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditEstado[]" value="${estado}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>País<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EditPais[]" value="${pais}" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-2">
+                                    <label>Observações</label>
+                                    <textarea class="form-control" name="EditObservacoes[]">${observacoes}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end">
+                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Endereço" disabled>
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            document.querySelector("#edit-accordionEnderecos").insertAdjacentHTML('beforeend', html);
+        }
+
+        // Modal de sucesso para edição de cliente
+        function mostrarModalSucessoEdicao() {
+            const modalHtml = `
+                <div class="modal fade" id="modalSucessoEdicao" tabindex="-1" aria-labelledby="modalSucessoEdicaoLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title" id="modalSucessoEdicaoLabel">Sucesso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body">
+                                Alterações salvas com sucesso!
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('modalSucessoEdicao'));
+            modal.show();
+            // Fecha o modal de edição ao exibir sucesso
+            var modalEditar = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
+            if (modalEditar) modalEditar.hide();
+            modal._element.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('modalSucessoEdicao').remove();
+            });
+        }
+
+        // Modal de sucesso para edição de endereços
+        function mostrarModalSucessoEnderecos() {
+            const modalHtml = `
+                <div class="modal fade" id="modalSucessoEnderecos" tabindex="-1" aria-labelledby="modalSucessoEnderecosLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title" id="modalSucessoEnderecosLabel">Sucesso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body">
+                                Endereços salvos com sucesso!
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('modalSucessoEnderecos'));
+            modal.show();
+            // Fecha o modal de edição de endereços ao exibir sucesso
+            var modalEditarEnderecos = bootstrap.Modal.getInstance(document.getElementById('modalEditarEnderecos'));
+            if (modalEditarEnderecos) modalEditarEnderecos.hide();
+            modal._element.addEventListener('hidden.bs.modal', function () {
+                document.getElementById('modalSucessoEnderecos').remove();
+            });
+        }
+
+        // Evento submit do formulário de edição de cliente
+        document.querySelector('#modalEditarCliente form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            mostrarModalSucessoEdicao();
+        });
+
+        // Evento submit do formulário de edição de endereços
+        document.getElementById('formEditarEnderecos').addEventListener('submit', function (e) {
+            e.preventDefault();
+            mostrarModalSucessoEnderecos();
+        });
+
+        // Lógica para abrir o modal de edição de endereços ao clicar no botão "Alterar Endereços"
+        document.querySelectorAll('button[title="Alterar Endereços"]').forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Limpa a lista de endereços do modal de edição
+                document.querySelector('#accordionEnderecosEdicao').innerHTML = '';
+                // Exemplo: adiciona dois endereços fictícios
+                adicionarEnderecoEdicao('Cobranca', 'Apartamento', 'Rua', 'Rua Exemplo', '123', 'Centro', '01234-567', 'São Paulo', 'SP', 'Brasil', 'Apto 101');
+                adicionarEnderecoEdicao('Entrega', 'Casa', 'Avenida', 'Av. Exemplo', '456', 'Bairro', '12345-678', 'Rio de Janeiro', 'RJ', 'Brasil', '');
+                // Abre o modal
+                var modal = new bootstrap.Modal(document.getElementById('modalEditarEnderecos'));
+                modal.show();
+            });
+        });
+
+        // Função para adicionar endereço no modal de edição de endereços
+        let enderecoEdicaoCount = 0;
+        function adicionarEnderecoEdicao(tipo = '', tipoResidencia = '', tipoLogradouro = '', logradouro = '', numero = '', bairro = '', cep = '', cidade = '', estado = '', pais = '', observacoes = '') {
+            const idx = enderecoEdicaoCount++;
+            const tipoLabel = tipo === 'Cobranca' ? 'Cobrança' : (tipo === 'Entrega' ? 'Entrega' : 'Novo');
+            const html = `
+            <div class="accordion-item" id="edicao-endereco-item-${idx}">
+                <h2 class="accordion-header" id="edicao-headingEndereco${idx}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edicao-collapseEndereco${idx}" aria-expanded="false" aria-controls="edicao-collapseEndereco${idx}">
+                        Endereço ${tipoLabel}
+                    </button>
+                </h2>
+                <div id="edicao-collapseEndereco${idx}" class="accordion-collapse collapse show" aria-labelledby="edicao-headingEndereco${idx}" data-bs-parent="#accordionEnderecosEdicao">
+                    <div class="accordion-body">
+                        <input type="hidden" name="EdicaoTipoEndereco[]" value="${tipo}" />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Tipo de Residência<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoTipoResidencia[]" value="${tipoResidencia}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Tipo de Logradouro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoTipoLogradouro[]" value="${tipoLogradouro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Logradouro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoLogradouro[]" value="${logradouro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mb-2">
+                                    <label>Número<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoNumero[]" value="${numero}" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-2">
+                                    <label>Bairro<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoBairro[]" value="${bairro}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>CEP<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoCEP[]" maxlength="9" value="${cep}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>Cidade<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoCidade[]" value="${cidade}" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group mb-2">
+                                    <label>Estado<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoEstado[]" value="${estado}" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-2">
+                                    <label>País<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="EdicaoPais[]" value="${pais}" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-2">
+                                    <label>Observações</label>
+                                    <textarea class="form-control" name="EdicaoObservacoes[]">${observacoes}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end">
+                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Endereço" disabled>
+                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            document.querySelector("#accordionEnderecosEdicao").insertAdjacentHTML('beforeend', html);
+        }
+
+        // Modal de confirmação de exclusão
+        function mostrarModalConfirmacaoExclusao(onConfirm) {
+            // Remove modal anterior se existir
+            const modalExistente = document.getElementById('modalConfirmarExclusao');
+            if (modalExistente) modalExistente.remove();
+
+            const modalHtml = `
+                <div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" aria-labelledby="modalConfirmarExclusaoLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-warning">
+                                <h5 class="modal-title" id="modalConfirmarExclusaoLabel">Confirmar Exclusão</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body">
+                                Tem certeza que deseja excluir este cliente?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" id="btnConfirmarExclusao">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('modalConfirmarExclusao'));
+            modal.show();
+
+            document.getElementById('btnConfirmarExclusao').onclick = function () {
+                modal.hide();
+                setTimeout(() => {
+                    document.getElementById('modalConfirmarExclusao').remove();
+                    onConfirm();
+                }, 300);
+            };
+
+            document.getElementById('modalConfirmarExclusao').addEventListener('hidden.bs.modal', function () {
+                if (document.getElementById('modalConfirmarExclusao')) {
+                    document.getElementById('modalConfirmarExclusao').remove();
+                }
+            });
+        }
+
+        // Remover cliente da listagem ao clicar no ícone de excluir, agora com confirmação
+        document.querySelectorAll('button[title="Excluir"]').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const tr = btn.closest('tr');
+                if (!tr) return;
+                mostrarModalConfirmacaoExclusao(() => {
+                    tr.remove();
+                });
+            });
+        });
     </script>
 }

@@ -17,8 +17,24 @@
       "PackagePath": "staticwebassets\\images\\icon-pencil.png"
     },
     {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-plus.png",
+      "PackagePath": "staticwebassets\\images\\icon-plus.png"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-star-full.png",
+      "PackagePath": "staticwebassets\\images\\icon-star-full.png"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-star.png",
+      "PackagePath": "staticwebassets\\images\\icon-star.png"
+    },
+    {
       "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-trash.png",
       "PackagePath": "staticwebassets\\images\\icon-trash.png"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-truck.png",
+      "PackagePath": "staticwebassets\\images\\icon-truck.png"
     },
     {
       "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\site.js",
