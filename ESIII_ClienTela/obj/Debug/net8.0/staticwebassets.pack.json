@@ -37,8 +37,28 @@
       "PackagePath": "staticwebassets\\images\\icon-truck.png"
     },
     {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\cartoes.js",
+      "PackagePath": "staticwebassets\\js\\cartoes.js"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\cliente.js",
+      "PackagePath": "staticwebassets\\js\\cliente.js"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\enderecos.js",
+      "PackagePath": "staticwebassets\\js\\enderecos.js"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\modais.js",
+      "PackagePath": "staticwebassets\\js\\modais.js"
+    },
+    {
       "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\js\\telefones.js",
+      "PackagePath": "staticwebassets\\js\\telefones.js"
     },
     {
       "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\lib\\bootstrap\\LICENSE",
