@@ -1,0 +1,17 @@
+
+bin/
+obj/
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+.env
+
+.idea/
+
+packages/
+project.lock.json
+project.fragment.lock.json
+
