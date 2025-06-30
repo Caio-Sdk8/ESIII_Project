@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZBciZPmJfizQlOsOKZZzy0BYT2Oe+xY9JgdxCDiG06k=",
+  "Hash": "3COk1vNi7hv/2vPAVlcaVAGZ46QWcJ+LIStnOuxtG0k=",
   "Source": "ESIII_ClienTela",
   "BasePath": "_content/ESIII_ClienTela",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-key.png",
+      "SourceId": "ESIII_ClienTela",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\",
+      "BasePath": "_content/ESIII_ClienTela",
+      "RelativePath": "images/icon-key.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icon-key.png"
     },
     {
       "Identity": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-pencil.png",

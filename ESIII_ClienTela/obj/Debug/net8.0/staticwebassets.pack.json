@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-key.png",
+      "PackagePath": "staticwebassets\\images\\icon-key.png"
+    },
+    {
       "Id": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\wwwroot\\images\\icon-pencil.png",
       "PackagePath": "staticwebassets\\images\\icon-pencil.png"
     },

@@ -1,6 +1,5 @@
 let enderecoCount = 0;
 let existeCobranca = false;
-
 // Cadastro - abre modal para escolha do tipo de endereço
 function abrirEscolhaTipoEndereco() {
     document.getElementById('btnAddCobranca').disabled = existeCobranca;
@@ -97,7 +96,9 @@ function adicionarEndereco(tipo) {
             </div>
         </div>
     </div>`;
+    
     document.querySelector("#accordionEnderecos").insertAdjacentHTML('beforeend', html);
+    $('input[name="CEP[]"]').mask('00000-000');
 }
 
 function removerEndereco(id, tipo) {
@@ -133,7 +134,9 @@ function abrirEscolhaTipoEnderecoEdicao() {
                 </div>
             </div>
         </div>`;
+        
         document.body.insertAdjacentHTML('beforeend', modalHtml);
+        
 
         // Adiciona listeners apenas uma vez
         document.getElementById('btnAddCobrancaEdicao').addEventListener('click', function () {
@@ -265,6 +268,7 @@ function adicionarEnderecoEdicao(
             </div>
         </div>`;
     document.querySelector("#edit-accordionEnderecos").insertAdjacentHTML('beforeend', html);
+    $('input[name="EditCEP[]"]').mask('00000-000');
 }
 
 // Remove um endereço do modal de edição

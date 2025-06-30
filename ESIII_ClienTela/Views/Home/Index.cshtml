@@ -110,6 +110,10 @@
                             data-id="@cliente.Id">
                         <img src="~/images/icon-truck.png" alt="Alterar Endereços" width="18" height="18" />
                     </button>
+                    <button class="btn" title="Alterar Senha"
+                            data-id="@cliente.Id">
+                        <img src="~/images/icon-key.png" alt="Alterar Senha" width="18" height="18" data-bs-toggle="modal" data-bs-target="#modalEditarSenha"/>
+                    </button>
                     <button class="btn" title="Excluir"
                             data-id="@cliente.Id">
                         <img src="~/images/icon-trash.png" alt="Excluir" width="18" height="18" />
@@ -524,7 +528,14 @@
                                             <div class="col-md-3">
                                                 <div class="form-group mb-2">
                                                     <label>Bandeira<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditBandeira[]" value="Visa" />
+                                                    <select class="form-control" name="EditBandeira[]">
+                                                        <option value="">Selecione</option>
+                                                        <option value="MasterCard">MasterCard</option>
+                                                        <option value="Visa">Visa</option>
+                                                        <option value="Hipercard">Hipercard</option>
+                                                        <option value="American Express">American Express</option>
+                                                        <option value="Elo">Elo</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
@@ -585,10 +596,50 @@
     </div>
 </div>
 
+<!-- Modal de Edição de Senha -->
+<div class="modal fade" id="modalEditarSenha" tabindex="-1" aria-labelledby="modalEditarSenhaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formEditarSenha">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarSenhaLabel">Alterar Senha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="SenhaClienteId" name="SenhaClienteId" />
+                    <div class="mb-3">
+                        <label for="SenhaAtual" class="form-label">Senha Atual</label>
+                        <input type="password" class="form-control" id="SenhaAtual" name="SenhaAtual" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="NovaSenha" class="form-label">Nova Senha</label>
+                        <input type="password" class="form-control" id="NovaSenha" name="NovaSenha" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="ConfirmarNovaSenha" class="form-label">Confirmar Nova Senha</label>
+                        <input type="password" class="form-control" id="ConfirmarNovaSenha" name="ConfirmarNovaSenha" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Nova Senha</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="~/js/modais.js"></script>
     <script src="~/js/telefones.js"></script>
     <script src="~/js/enderecos.js"></script>
     <script src="~/js/cartoes.js"></script>
     <script src="~/js/cliente.js"></script>
+    <script>
+        $(function () {
+            // Máscara para CPF
+            $('#CPF, #EditCPF').mask('000.000.000-00');
+    </script>
 }
