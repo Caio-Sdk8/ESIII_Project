@@ -8,7 +8,7 @@ CREATE TABLE Cliente (
     dataNascimento DATE,
     cpf CHAR(11) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL,
+    senha char(60) NOT NULL,
     status BOOLEAN DEFAULT TRUE,
     ranking INT DEFAULT 0
 );
@@ -98,5 +98,6 @@ CREATE TABLE CartaoDeCredito (
     nomeImpresso VARCHAR(100) NOT NULL,
     codSeguranca CHAR(3) NOT NULL,
     band VARCHAR(16) NOT NULL,
+    preferencial bool,
     FOREIGN KEY (clienteId) REFERENCES Cliente(id) ON DELETE CASCADE
 );
