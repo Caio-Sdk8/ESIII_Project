@@ -30,7 +30,7 @@ function adicionarTelefone() {
                     <div class="col-md-2">
                         <div class="form-group mb-2">
                             <label>DDD<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="DDD[]" maxlength="3" />
+                            <input type="text" class="form-control" name="DDD[]" maxlength="4" />
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -41,7 +41,7 @@ function adicionarTelefone() {
                     </div>
                     <div class="col-md-1 d-flex align-items-end">
                         <button type="button" class="btn btn-link text-danger p-0" onclick="removerTelefone('telefone-item-${idx}')" title="Remover Telefone">
-                            <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                            <img src="/images/icon-trash.png" alt="Remover" width="22" height="10" />
                         </button>
                     </div>
                 </div>
@@ -49,6 +49,8 @@ function adicionarTelefone() {
         </div>
     </div>`;
     document.querySelector("#accordionTelefones").insertAdjacentHTML('beforeend', html);
+    $('input[name="Phone[]"]').mask('00000-0000');
+    $('input[name="DDD[]"]').mask('(00)');
 }
 
 // Remove um telefone da lista dinâmica (cadastro ou edição)
@@ -94,7 +96,7 @@ function adicionarTelefoneEdicao(tipo = '', ddd = '', numero = '') {
                         <div class="col-md-2">
                             <div class="form-group mb-2">
                                 <label>DDD<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditDDD[]" maxlength="3" value="${ddd}" />
+                                <input type="text" class="form-control" name="EditDDD[]" maxlength="4" value="${ddd}" />
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -112,5 +114,8 @@ function adicionarTelefoneEdicao(tipo = '', ddd = '', numero = '') {
                 </div>
             </div>
         </div>`;
+        
     document.querySelector("#edit-accordionTelefones").insertAdjacentHTML('beforeend', html);
+    $('input[name="EditPhone[]"]').mask('00000-0000');
+    $('input[name="EditDDD[]"]').mask('(00)');
 }
