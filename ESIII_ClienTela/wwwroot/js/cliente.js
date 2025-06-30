@@ -64,6 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Validação do padrão da senha
+            const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/.test(senha);
+            if (!senhaValida) {
+                mostrarModalErro('A senha deve conter no mínimo 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.');
+                return;
+            }
+
             // TELEFONES
             const telefones = document.querySelectorAll('#accordionTelefones .accordion-item');
             if (telefones.length === 0) {
@@ -120,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let cartao of cartoesEls) {
                 const numero = cartao.querySelector('input[name="NumeroCartao[]"]').value.trim();
                 const nomeCartao = cartao.querySelector('input[name="NomeCartao[]"]').value.trim();
-                const bandeira = cartao.querySelector('input[name="Bandeira[]"]').value.trim();
+                const bandeira = cartao.querySelector('select[name="Bandeira[]"]').value.trim();
                 const cvv = cartao.querySelector('input[name="CVV[]"]').value.trim();
                 if (!numero || !nomeCartao || !bandeira || !cvv) {
                     mostrarModalErro('Preencha todos os campos obrigatórios em Cartão.');
@@ -219,5 +226,53 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.show();
         });
     });
+
+    // Abrir modal de senha com o id do cliente
+    document.querySelectorAll('button[title="Alterar Senha"]').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const id = btn.getAttribute('data-id');
+            document.getElementById('SenhaClienteId').value = id;
+            // Limpa campos ao abrir
+            document.getElementById('SenhaAtual').value = '';
+            document.getElementById('NovaSenha').value = '';
+            document.getElementById('ConfirmarNovaSenha').value = '';
+        });
+    });
+
+    // Validação e submissão do formulário de senha
+    const formEditarSenha = document.getElementById('formEditarSenha');
+    if (formEditarSenha) {
+        formEditarSenha.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const senhaAtual = document.getElementById('SenhaAtual').value;
+            const novaSenha = document.getElementById('NovaSenha').value;
+            const confirmarNovaSenha = document.getElementById('ConfirmarNovaSenha').value;
+
+            // Validação do padrão da nova senha
+            const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/.test(novaSenha);
+            if (!senhaValida) {
+                mostrarModalErro('A nova senha deve conter no mínimo 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.');
+                return;
+            }
+            if (novaSenha !== confirmarNovaSenha) {
+                mostrarModalErro('A nova senha e a confirmação devem ser iguais.');
+                return;
+            }
+
+            // Área para validar se a senha atual está correta (backend)
+            // Exemplo:
+            // $.post('/clientes/validar-senha', { id: ..., senhaAtual: senhaAtual })
+            //   .done(function(resp) { if (!resp.valida) { mostrarModalErro('Senha atual incorreta.'); return; } ... })
+
+            // Se passou, pode enviar para o backend para alterar a senha
+            // $.post('/clientes/alterar-senha', { id: ..., novaSenha: novaSenha })
+            //   .done(function(resp) { mostrarModalSucesso(); ... })
+
+            // Fecha o modal (simulação)
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarSenha'));
+            if (modal) modal.hide();
+            mostrarModalSucesso();
+        });
+    }
 });
 

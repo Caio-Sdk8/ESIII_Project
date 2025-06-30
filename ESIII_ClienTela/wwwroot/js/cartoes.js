@@ -12,51 +12,58 @@ function adicionarCartao() {
     cartoes.push({ id: idx, principal: isPrincipal });
 
     const html = `
-    <div class="accordion-item" id="cartao-item-${idx}">
-        <h2 class="accordion-header" id="headingCartao${idx}">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCartao${idx}" aria-expanded="false" aria-controls="collapseCartao${idx}">
-                Cartão ${idx + 1}
-                <span class="ms-2" id="icon-principal-${idx}" style="cursor:pointer;" onclick="definirPrincipalCartao(${idx})" title="Definir como principal">
-                    <img src="/images/${isPrincipal ? 'icon-star-full' : 'icon-star'}.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
-                </span>
-            </button>
-        </h2>
-        <div id="collapseCartao${idx}" class="accordion-collapse collapse show" aria-labelledby="headingCartao${idx}" data-bs-parent="#accordionCartoes">
-            <div class="accordion-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group mb-2">
-                            <label>Número do Cartão<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="NumeroCartao[]" maxlength="19" />
-                        </div>
+<div class="accordion-item" id="cartao-item-${idx}">
+    <h2 class="accordion-header" id="headingCartao${idx}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCartao${idx}" aria-expanded="false" aria-controls="collapseCartao${idx}">
+            Cartão ${idx + 1}
+            <span class="ms-2" id="icon-principal-${idx}" style="cursor:pointer;" onclick="definirPrincipalCartao(${idx})" title="Definir como principal">
+                <img src="/images/${isPrincipal ? 'icon-star-full' : 'icon-star'}.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
+            </span>
+        </button>
+    </h2>
+    <div id="collapseCartao${idx}" class="accordion-collapse collapse show" aria-labelledby="headingCartao${idx}" data-bs-parent="#accordionCartoes">
+        <div class="accordion-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group mb-2">
+                        <label>Número do Cartão<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="NumeroCartao[]" maxlength="19" />
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group mb-2">
-                            <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="NomeCartao[]" />
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-2">
+                        <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="NomeCartao[]" />
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group mb-2">
-                            <label>Bandeira<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="Bandeira[]" />
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-2">
+                        <label>Bandeira<span class="text-danger">*</span></label>
+                        <select class="form-control" name="Bandeira[]">
+                            <option value="">Selecione</option>
+                            <option value="MasterCard">MasterCard</option>
+                            <option value="Visa">Visa</option>
+                            <option value="Hipercard">Hipercard</option>
+                            <option value="American Express">American Express</option>
+                            <option value="Elo">Elo</option>
+                        </select>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group mb-2">
-                            <label>CVV<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="CVV[]" maxlength="4" />
-                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-2">
+                        <label>CVV<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="CVV[]" maxlength="4" />
                     </div>
-                    <div class="col-md-1 d-flex align-items-end">
-                        <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartao('cartao-item-${idx}', ${idx})" title="Remover Cartão">
-                            <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
-                        </button>
-                    </div>
+                </div>
+                <div class="col-md-1 d-flex align-items-end">
+                    <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartao('cartao-item-${idx}', ${idx})" title="Remover Cartão">
+                        <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
+                    </button>
                 </div>
             </div>
         </div>
-    </div>`;
+    </div>
+</div>`;
     document.querySelector("#accordionCartoes").insertAdjacentHTML('beforeend', html);
     atualizarIconesCartaoPrincipal();
 }
@@ -138,7 +145,14 @@ function adicionarCartaoEdicao(numero = '', nomeCartao = '', bandeira = '', cvv 
                         <div class="col-md-3">
                             <div class="form-group mb-2">
                                 <label>Bandeira<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditBandeira[]" value="${bandeira}" />
+                                <select class="form-control" name="EditBandeira[]">
+                                    <option value="">Selecione</option>
+                                    <option value="MasterCard" ${bandeira === 'MasterCard' ? 'selected' : ''}>MasterCard</option>
+                                    <option value="Visa" ${bandeira === 'Visa' ? 'selected' : ''}>Visa</option>
+                                    <option value="Hipercard" ${bandeira === 'Hipercard' ? 'selected' : ''}>Hipercard</option>
+                                    <option value="American Express" ${bandeira === 'American Express' ? 'selected' : ''}>American Express</option>
+                                    <option value="Elo" ${bandeira === 'Elo' ? 'selected' : ''}>Elo</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-2">
