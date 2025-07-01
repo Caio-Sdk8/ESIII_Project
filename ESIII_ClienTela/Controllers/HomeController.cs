@@ -44,18 +44,17 @@ namespace ESIII_ClienTela.Controllers
         }
 
         [HttpPost]
-        public ActionResult AlterarSenha(ClienteModel cliente)
+        public ActionResult AlterarSenha(int id, string senha, string confirmarSenha)
         {
-            var resultado = fachada.AlterarSenha(cliente);
+            var resultado = fachada.AlterarSenha(id, senha, confirmarSenha);
 
             if (resultado == "ok")
                 return RedirectToAction("Index");
-            else
-            {
-                ModelState.AddModelError("", resultado);
-                return View("SuaViewDeEditarSenha", cliente);
-            }
+
+            ModelState.AddModelError("", resultado);
+            return RedirectToAction("Index");
         }
+
         public IActionResult Privacy()
         {
             return View();

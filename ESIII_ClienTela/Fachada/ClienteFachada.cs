@@ -32,17 +32,25 @@ namespace ESIII_ClienTela.Fachada
             throw new NotImplementedException();
         }
 
-        public string AlterarSenha(ClienteModel cliente)
+        public string AlterarSenha(int id, string senha, string confirmarSenha)
         {
-            var strategy = new CriptografarStrategy();
-            var resultado = strategy.Processar(cliente);
+            if (string.IsNullOrWhiteSpace(senha) || string.IsNullOrWhiteSpace(confirmarSenha))
+                return "Senha e confirmação não podem ser vazias.";
 
+            if (senha != confirmarSenha)
+                return "Senha e confirmação não conferem.";
+
+            var cliente = CliDao.ObterPorId(id);
+            if (cliente == null)
+                return "Cliente não encontrado.";
+
+            cliente.Senha = senha;
+
+            var resultado = Criptografar.Processar(cliente);
             if (resultado != "ok")
                 return resultado;
 
-            bool sucesso = CliDao.AtualizarSenha(cliente.Id, cliente.Senha);
-            if (!sucesso)
-                return "Erro ao atualizar senha no banco.";
+            CliDao.AtualizarSenha(cliente.Id, cliente.Senha);
 
             return "ok";
         }

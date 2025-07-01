@@ -104,7 +104,7 @@
                             data-id="@cliente.Id">
                         <img src="~/images/icon-truck.png" alt="Alterar Endereços" width="18" height="18" />
                     </button>
-                    <button class="btn btn-warning" title="Alterar Senha"
+                    <button class="btn" title="Alterar Senha"
                             data-id="@cliente.Id"
                             data-bs-toggle="modal"
                             data-bs-target="#modalEditarSenha">
@@ -594,17 +594,13 @@
 <div class="modal fade" id="modalEditarSenha" tabindex="-1" aria-labelledby="modalEditarSenhaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="formEditarSenha">
+            <form id="formEditarSenha" method="post" asp-action="AlterarSenha" asp-controller="Home">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalEditarSenhaLabel">Alterar Senha</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="SenhaClienteId" name="SenhaClienteId" />
-                    <div class="mb-3">
-                        <label for="SenhaAtual" class="form-label">Senha Atual</label>
-                        <input type="password" class="form-control" id="SenhaAtual" name="SenhaAtual" required />
-                    </div>
                     <div class="mb-3">
                         <label for="NovaSenha" class="form-label">Nova Senha</label>
                         <input type="password" class="form-control" id="NovaSenha" name="NovaSenha" required />
@@ -619,6 +615,14 @@
                     <button type="submit" class="btn btn-primary">Salvar Nova Senha</button>
                 </div>
             </form>
+            <script>
+                var modalSenha = document.getElementById('modalEditarSenha');
+                modalSenha.addEventListener('show.bs.modal', function (event) {
+                  var button = event.relatedTarget;
+                  var clienteId = button.getAttribute('data-id');
+                  document.getElementById('SenhaClienteId').value = clienteId;
+                });
+            </script>
         </div>
     </div>
 </div>
@@ -635,12 +639,6 @@
         $(function () {
             // Máscara para CPF
             $('#CPF, #EditCPF').mask('000.000.000-00');
-            var modalSenha = document.getElementById('modalEditarSenha');
-            modalSenha.addEventListener('show.bs.modal', function (event) {
-                var button = event.relatedTarget;
-                var clienteId = button.getAttribute('data-id');
-                document.getElementById('SenhaClienteId').value = clienteId;
-            });
         });
     </script>
 }
