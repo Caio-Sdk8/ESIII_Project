@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\caioa\\Documents\\ESIII_PROJ\\ESIII_ClienTela\\",
+  "WorkspaceRootPath": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_proj\\esiii_clientela\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\fachada\\fachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:fachada\\fachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_proj\\esiii_clientela\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\fachada\\abstractfachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:fachada\\abstractfachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\validarenderecosstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\validarenderecosstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\fachada\\ifachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:fachada\\ifachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_PROJ\\ESIII_ClienTela\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_PROJ\\ESIII_ClienTela\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "DocumentIndex": 2,
+              "Title": "ValidarEnderecosStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarEnderecosStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\ValidarEnderecosStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarEnderecosStrategy.cs",
+              "RelativeToolTip": "Strategys\\ValidarEnderecosStrategy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-25T21:21:32.271Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T22:23:04.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_PROJ\\ESIII_ClienTela\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_PROJ\\ESIII_ClienTela\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AbstractFachada.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\AbstractFachada.cs",
+              "RelativeDocumentMoniker": "Fachada\\AbstractFachada.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\AbstractFachada.cs",
+              "RelativeToolTip": "Fachada\\AbstractFachada.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAiwKMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:21:20.495Z",
+              "WhenOpened": "2025-07-01T22:19:04.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IFachada.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\IFachada.cs",
+              "RelativeDocumentMoniker": "Fachada\\IFachada.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\IFachada.cs",
+              "RelativeToolTip": "Fachada\\IFachada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T22:17:47.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fachada.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\Fachada.cs",
+              "RelativeDocumentMoniker": "Fachada\\Fachada.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\Fachada.cs",
+              "RelativeToolTip": "Fachada\\Fachada.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T00:47:44.576Z",
               "EditorCaption": ""
             }
           ]
