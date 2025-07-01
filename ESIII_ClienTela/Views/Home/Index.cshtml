@@ -12,6 +12,8 @@
     */
     // @* Exemplo de chamada backend para buscar clientes filtrados e paginados *@
     // @* var clientes = await _clienteService.BuscarClientes(filtroNome, filtroEmail, filtroTelefone, paginaAtual); *@
+    int paginaAtual = ViewBag.PaginaAtual;
+    int totalPaginas = ViewBag.TotalPaginas;
 }
 
 <div class="container mt-5">
@@ -54,9 +56,6 @@
         </thead>
         <tbody>
             @{
-                // @* Backend: foreach (var cliente in Model) *@
-                // Lê o parâmetro "page" da query string (padrão: 1)
-                int paginaAtual = 1;
                 var queryPage = Context.Request.Query["page"];
                 if (!string.IsNullOrEmpty(queryPage) && int.TryParse(queryPage, out int pageFromQuery))
                 {
@@ -64,7 +63,6 @@
                 }
                 int itensPorPagina = 20;
                 int totalClientes = 50;
-                int totalPaginas = (int)Math.Ceiling((double)totalClientes / itensPorPagina);
                 int inicio = (paginaAtual - 1) * itensPorPagina + 1;
                 int fim = Math.Min(inicio + itensPorPagina - 1, totalClientes);
 
@@ -73,28 +71,24 @@
                 string filtroEmail = Context.Request.Query["email"].ToString() ?? "";
                 string filtroTelefone = Context.Request.Query["telefone"].ToString() ?? "";
 
-                // Simulação de filtro (apenas para demonstração visual)
-                for (int i = inicio; i <= fim; i++)
+                foreach (var cliente in Model)
                 {
-                    var cliente = new { Id = i, Name = $"Cliente {i}", Email = $"cliente{i}@email.com", Phone = $"(11) 90000-0000", Ativo = i % 2 == 0 };
-
-                    bool exibir = true;
-                    if (!string.IsNullOrEmpty(filtroNome) && !cliente.Name.Contains(filtroNome, StringComparison.OrdinalIgnoreCase))
-                        exibir = false;
-                    if (!string.IsNullOrEmpty(filtroEmail) && !cliente.Email.Contains(filtroEmail, StringComparison.OrdinalIgnoreCase))
-                        exibir = false;
-                    if (!string.IsNullOrEmpty(filtroTelefone) && !cliente.Phone.Contains(filtroTelefone, StringComparison.OrdinalIgnoreCase))
-                        exibir = false;
-
-                    if (!exibir) continue;
-            <tr>
-                <!-- @* Backend: Preencher dados do cliente *@ -->
-                <td>@cliente.Name</td>
+                        <tr>
+                            <td>@cliente.Nome</td>
                 <td>@cliente.Email</td>
-                <td>@cliente.Phone</td>
+                <td>
+                    @if (cliente.Telefones != null && cliente.Telefones.Count > 0)
+                    {
+                        @($"({cliente.Telefones[0].Ddd}) {cliente.Telefones[0].Numero}")
+                    }
+                    else
+                    {
+                        <text>Não possui telefone</text>
+                    }
+                </td>
                 <td>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" @(cliente.Ativo ? "checked" : "")/>
+                        <input class="form-check-input" type="checkbox" @(cliente.Status ? 1 : 0)/>
                             <!-- @* onchange="await _clienteService.AlterarStatus(cliente.Id, this.checked)" *@ -->
                        
                         <!-- @* Backend: PUT /clientes/{id}/status *@ -->
@@ -102,17 +96,19 @@
                 </td>
                 <td>
                     <button class="btn" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarCliente"
-                            data-id="@cliente.Id" data-nome="@cliente.Name" data-email="@cliente.Email"
-                            data-telefone="@cliente.Phone" data-status="@(cliente.Ativo ? 1 : 0)">
+                            data-id="@cliente.Id" data-nome="@cliente.Nome" data-email="@cliente.Email"
+                                    data-telefone="@cliente.Telefones" data-status="@(cliente.Status ? 1 : 0)">
                         <img src="~/images/icon-pencil.png" alt="Editar" width="18" height="18" />
                     </button>
                     <button class="btn" title="Alterar Endereços"
                             data-id="@cliente.Id">
                         <img src="~/images/icon-truck.png" alt="Alterar Endereços" width="18" height="18" />
                     </button>
-                    <button class="btn" title="Alterar Senha"
-                            data-id="@cliente.Id">
-                        <img src="~/images/icon-key.png" alt="Alterar Senha" width="18" height="18" data-bs-toggle="modal" data-bs-target="#modalEditarSenha"/>
+                    <button class="btn btn-warning" title="Alterar Senha"
+                            data-id="@cliente.Id"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditarSenha">
+                        <img src="~/images/icon-key.png" alt="Alterar Senha" width="18" height="18" />
                     </button>
                     <button class="btn" title="Excluir"
                             data-id="@cliente.Id">
@@ -121,7 +117,7 @@
                     <!-- @* Backend: DELETE /clientes/{id} ao confirmar exclusão *@ -->
                 </td>
             </tr>
-                }
+            }
             }
         </tbody>
     </table>
@@ -129,15 +125,13 @@
     <!-- Paginação -->
     <nav>
         <ul class="pagination">
-            <!-- @* Backend: Gerar links de paginação conforme total de páginas *@ -->
-            <!-- @* Exemplo: for (int i = 1; i <= ViewBag.TotalPages; i++) *@ -->
-            @for (int i = 1; i <= totalPaginas; i++)
+            @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
             {
-                <li class="page-item @(i == paginaAtual ? "active" : "")">
+                <li class="page-item @(i == ViewBag.PaginaAtual ? "active" : "")">
                     <a class="page-link" href="?page=@i
-                        @( !string.IsNullOrEmpty(filtroNome) ? $"&nome={filtroNome}" : "" )
-                        @( !string.IsNullOrEmpty(filtroEmail) ? $"&email={filtroEmail}" : "" )
-                        @( !string.IsNullOrEmpty(filtroTelefone) ? $"&telefone={filtroTelefone}" : "" )
+                        @( !string.IsNullOrEmpty(ViewBag.FiltroNome) ? $"&nome={ViewBag.FiltroNome}" : "" )
+                        @( !string.IsNullOrEmpty(ViewBag.FiltroEmail) ? $"&email={ViewBag.FiltroEmail}" : "" )
+                        @( !string.IsNullOrEmpty(ViewBag.FiltroTelefone) ? $"&telefone={ViewBag.FiltroTelefone}" : "" )
                     ">@i</a>
                 </li>
             }
@@ -641,5 +635,12 @@
         $(function () {
             // Máscara para CPF
             $('#CPF, #EditCPF').mask('000.000.000-00');
+            var modalSenha = document.getElementById('modalEditarSenha');
+            modalSenha.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var clienteId = button.getAttribute('data-id');
+                document.getElementById('SenhaClienteId').value = clienteId;
+            });
+        });
     </script>
 }

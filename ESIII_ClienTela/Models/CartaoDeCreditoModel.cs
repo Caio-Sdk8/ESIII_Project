@@ -7,5 +7,6 @@
         public required string NomeImpresso { get; set; }
         public required string CodSeguranca { get; set; }
         public required string Band { get; set; }
+        public bool Preferencial { get; set; }
     }
 }

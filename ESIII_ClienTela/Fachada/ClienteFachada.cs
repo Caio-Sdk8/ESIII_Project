@@ -32,7 +32,23 @@ namespace ESIII_ClienTela.Fachada
             throw new NotImplementedException();
         }
 
-        public int salvar(ClienteModel entidade)
+        public string AlterarSenha(ClienteModel cliente)
+        {
+            var strategy = new CriptografarStrategy();
+            var resultado = strategy.Processar(cliente);
+
+            if (resultado != "ok")
+                return resultado;
+
+            bool sucesso = CliDao.AtualizarSenha(cliente.Id, cliente.Senha);
+            if (!sucesso)
+                return "Erro ao atualizar senha no banco.";
+
+            return "ok";
+        }
+
+
+        public string salvar(ClienteModel entidade)
         {
             string validacaoCampos = ValidarCampos.Processar(entidade);
             if(validacaoCampos != "OK")
@@ -72,14 +88,12 @@ namespace ESIII_ClienTela.Fachada
 
             try
             {
-                return CliDao.Inserir(entidade);
+                return CliDao.Inserir(entidade).ToString();
             }
             catch (Exception ex)
             {
                 return ex.Message;
             }
-
-            return "Ok";
         }
 
         public string salvarCompleto(ClienteCompletoViewModel Entidade)
@@ -117,7 +131,20 @@ namespace ESIII_ClienTela.Fachada
                 return validacaoEnd;
             }
 
-            string salvarCli = salvar(Entidade.Cliente);
+            int idCli;
+            try
+            {
+                idCli = int.Parse(salvar(Entidade.Cliente));
+            } catch (Exception ex) {
+                return ex.Message;
+            }
+
+            return "ok";
+        }
+
+        public List<ClienteModel> BuscarClientesComFiltro(string? nome, string? email, string? telefone, string? cpf)
+        {
+            return CliDao.BuscarClientesParams(nome, email, telefone, cpf);
         }
     }
 }

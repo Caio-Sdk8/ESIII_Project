@@ -1,6 +1,8 @@
-using System.Diagnostics;
+using ESIII_ClienTela.DAO;
+using ESIII_ClienTela.Fachada;
 using ESIII_ClienTela.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace ESIII_ClienTela.Controllers
 {
@@ -13,11 +15,47 @@ namespace ESIII_ClienTela.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        ClienteFachada fachada = new();
+        ClienteDAO CliDao = new();
+        // GET: ClientesController
+
+        public ActionResult Index(int page = 1, string? nome = null, string? email = null, string? telefone = null)
         {
-            return View();
+            const int itensPorPagina = 20;
+
+            var clientesFiltrados = CliDao.BuscarClientesParams(nome, email, telefone, null);
+
+            int totalClientes = clientesFiltrados.Count;
+            int totalPaginas = (int)Math.Ceiling((double)totalClientes / itensPorPagina);
+
+            var clientesPaginados = clientesFiltrados
+                .Skip((page - 1) * itensPorPagina)
+                .Take(itensPorPagina)
+                .ToList();
+
+            ViewBag.PaginaAtual = page;
+            ViewBag.TotalPaginas = totalPaginas;
+
+            ViewBag.FiltroNome = nome ?? "";
+            ViewBag.FiltroEmail = email ?? "";
+            ViewBag.FiltroTelefone = telefone ?? "";
+
+            return View(clientesPaginados);
         }
 
+        [HttpPost]
+        public ActionResult AlterarSenha(ClienteModel cliente)
+        {
+            var resultado = fachada.AlterarSenha(cliente);
+
+            if (resultado == "ok")
+                return RedirectToAction("Index");
+            else
+            {
+                ModelState.AddModelError("", resultado);
+                return View("SuaViewDeEditarSenha", cliente);
+            }
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -149,12 +149,12 @@ namespace ESIII_ClienTela.DAO
 
             cmd.ExecuteNonQuery();
         }
-    }
-    public List<EnderecoModel> BuscarPorClienteId(int clienteId)
+
+        public List<EnderecoModel> BuscarPorClienteId(int clienteId)
         {
             var enderecos = new List<EnderecoModel>();
 
-            using var conn = new MySqlConnection(_connectionString);
+            using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
             string query = "SELECT * FROM Endereco WHERE clienteId = @clienteId";
@@ -188,3 +188,5 @@ namespace ESIII_ClienTela.DAO
             return enderecos;
         }
     }
+
+}
