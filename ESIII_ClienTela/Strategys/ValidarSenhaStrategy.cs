@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace ESIII_ClienTela.Strategys
 {
-    public class ValidarSenha : IStrategy<ClienteModel>
+    public class ValidarSenhaStrategy : IStrategy<ClienteModel>
     {
         private static readonly Regex _regex = new(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$");
 

@@ -38,15 +38,17 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(PaisModel pais)
+        public int Inserir(PaisModel pais)
         {
             using var conexao = MySqlConnectionDB.GetConnection();
             conexao.Open();
 
-            string sql = "INSERT INTO Pais (nome) VALUES (@nome)";
+            string sql = "INSERT INTO Pais (nome) VALUES (@nome); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@nome", pais.Nome);
-            cmd.ExecuteNonQuery();
+
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(PaisModel pais)

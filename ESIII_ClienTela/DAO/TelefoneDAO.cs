@@ -56,12 +56,12 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(TelefoneModel telefone)
+        public int Inserir(TelefoneModel telefone)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "INSERT INTO Telefone (cliente_id, tipoTelefone_id, ddd, numero) VALUES (@cliente_id, @tipoTelefone_id, @ddd, @numero)";
+            string sql = "INSERT INTO Telefone (cliente_id, tipoTelefone_id, ddd, numero) VALUES (@cliente_id, @tipoTelefone_id, @ddd, @numero); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@cliente_id", telefone.Cliente_id);
@@ -69,7 +69,8 @@ namespace ESIII_ClienTela.DAO
             cmd.Parameters.AddWithValue("@ddd", telefone.Ddd);
             cmd.Parameters.AddWithValue("@numero", telefone.Numero);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(TelefoneModel telefone)

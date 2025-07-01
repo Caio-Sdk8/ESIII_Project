@@ -118,3 +118,4 @@ C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\refint\E
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
+C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll

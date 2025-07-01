@@ -3,68 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\telefonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\telefonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\clientecompletoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\clientecompletoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\tipotelefonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\tipotelefonemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\istrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\istrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\enderecomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\enderecomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\validarsenhastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\validarsenhastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\entidadedominio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\entidadedominio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\validarcamposstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\validarcamposstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\cidademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\cidademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\validarbandeirastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\validarbandeirastrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\enums\\bandeiracartaoenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:enums\\bandeiracartaoenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\estadomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\estadomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\gerarrankingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\gerarrankingstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\paismodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\paismodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:dao\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\tipoenderecomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\tipoenderecomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\fachada\\abstractfachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:fachada\\abstractfachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\tiporesidenciamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\tiporesidenciamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\fachada\\ifachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:fachada\\ifachada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\models\\tipologradouromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:models\\tipologradouromodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\dao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:dao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\data\\mysqlconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:data\\mysqlconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\strategys\\criptografarstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|solutionrelative:strategys\\criptografarstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A6AA9A-F676-479E-A72C-0ACFCFB43345}|ESIII_ClienTela.csproj|c:\\users\\caioa\\documents\\esiii_project\\esiii_clientela\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,222 +63,156 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TelefoneModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TelefoneModel.cs",
-              "RelativeDocumentMoniker": "Models\\TelefoneModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TelefoneModel.cs*",
-              "RelativeToolTip": "Models\\TelefoneModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Title": "ClienteCompletoViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\ClienteCompletoViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ClienteCompletoViewModel.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\ClienteCompletoViewModel.cs*",
+              "RelativeToolTip": "Models\\ClienteCompletoViewModel.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T15:05:00.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EstadoModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EstadoModel.cs",
-              "RelativeDocumentMoniker": "Models\\EstadoModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EstadoModel.cs",
-              "RelativeToolTip": "Models\\EstadoModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:50:44.656Z",
+              "WhenOpened": "2025-06-30T21:23:39.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CidadeModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\CidadeModel.cs",
-              "RelativeDocumentMoniker": "Models\\CidadeModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\CidadeModel.cs",
-              "RelativeToolTip": "Models\\CidadeModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAzAAAAAAAAAA==",
+              "Title": "ValidarBandeiraStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarBandeiraStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\ValidarBandeiraStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarBandeiraStrategy.cs",
+              "RelativeToolTip": "Strategys\\ValidarBandeiraStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:50:24.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EntidadeDominio.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EntidadeDominio.cs",
-              "RelativeDocumentMoniker": "Models\\EntidadeDominio.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EntidadeDominio.cs",
-              "RelativeToolTip": "Models\\EntidadeDominio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:15:44.541Z",
+              "WhenOpened": "2025-06-30T21:20:13.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ClienteModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\ClienteModel.cs",
-              "RelativeDocumentMoniker": "Models\\ClienteModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\ClienteModel.cs",
-              "RelativeToolTip": "Models\\ClienteModel.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwAgAAAAwAAAAAAAAAA==",
+              "Title": "BandeiraCartaoEnum.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Enums\\BandeiraCartaoEnum.cs",
+              "RelativeDocumentMoniker": "Enums\\BandeiraCartaoEnum.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Enums\\BandeiraCartaoEnum.cs",
+              "RelativeToolTip": "Enums\\BandeiraCartaoEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:13:03.791Z",
+              "WhenOpened": "2025-06-30T21:18:27.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ValidarCamposStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarCamposStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\ValidarCamposStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarCamposStrategy.cs",
+              "RelativeToolTip": "Strategys\\ValidarCamposStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T14:52:30.493Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EnderecoModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EnderecoModel.cs",
-              "RelativeDocumentMoniker": "Models\\EnderecoModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\EnderecoModel.cs",
-              "RelativeToolTip": "Models\\EnderecoModel.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA4AAAAwAAAAAAAAAA==",
+              "Title": "ValidarSenhaStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarSenhaStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\ValidarSenhaStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\ValidarSenhaStrategy.cs",
+              "RelativeToolTip": "Strategys\\ValidarSenhaStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:51:02.757Z",
+              "WhenOpened": "2025-06-30T01:01:44.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TipoTelefoneModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoTelefoneModel.cs",
-              "RelativeDocumentMoniker": "Models\\TipoTelefoneModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoTelefoneModel.cs",
-              "RelativeToolTip": "Models\\TipoTelefoneModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "Title": "IStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\IStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\IStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\IStrategy.cs",
+              "RelativeToolTip": "Strategys\\IStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:54:06.959Z",
+              "WhenOpened": "2025-06-29T21:54:13.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PaisModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\PaisModel.cs",
-              "RelativeDocumentMoniker": "Models\\PaisModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\PaisModel.cs",
-              "RelativeToolTip": "Models\\PaisModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "GerarRankingStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\GerarRankingStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\GerarRankingStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\GerarRankingStrategy.cs",
+              "RelativeToolTip": "Strategys\\GerarRankingStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:50:11.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TipoResidenciaModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoResidenciaModel.cs",
-              "RelativeDocumentMoniker": "Models\\TipoResidenciaModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoResidenciaModel.cs*",
-              "RelativeToolTip": "Models\\TipoResidenciaModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:49:56.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TipoLogradouroModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoLogradouroModel.cs",
-              "RelativeDocumentMoniker": "Models\\TipoLogradouroModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoLogradouroModel.cs",
-              "RelativeToolTip": "Models\\TipoLogradouroModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:49:29.492Z",
+              "WhenOpened": "2025-06-30T21:09:06.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "TipoEnderecoModel.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoEnderecoModel.cs",
-              "RelativeDocumentMoniker": "Models\\TipoEnderecoModel.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Models\\TipoEnderecoModel.cs",
-              "RelativeToolTip": "Models\\TipoEnderecoModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "Title": "AbstractFachada.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\AbstractFachada.cs",
+              "RelativeDocumentMoniker": "Fachada\\AbstractFachada.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\AbstractFachada.cs",
+              "RelativeToolTip": "Fachada\\AbstractFachada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:49:44.955Z",
+              "WhenOpened": "2025-06-30T20:59:00.75Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IFachada.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\IFachada.cs",
+              "RelativeDocumentMoniker": "Fachada\\IFachada.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Fachada\\IFachada.cs",
+              "RelativeToolTip": "Fachada\\IFachada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T20:57:08.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClienteDAO.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\DAO\\ClienteDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\ClienteDAO.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\DAO\\ClienteDAO.cs",
+              "RelativeToolTip": "DAO\\ClienteDAO.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAqwLsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T13:44:37.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CriptografarStrategy.cs",
+              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\CriptografarStrategy.cs",
+              "RelativeDocumentMoniker": "Strategys\\CriptografarStrategy.cs",
+              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Strategys\\CriptografarStrategy.cs",
+              "RelativeToolTip": "Strategys\\CriptografarStrategy.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowBEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T21:58:38.208Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "IDAO.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\DAO\\IDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\IDAO.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\DAO\\IDAO.cs",
-              "RelativeToolTip": "DAO\\IDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:20:35.211Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MySqlConnection.cs",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Data\\MySqlConnection.cs",
-              "RelativeDocumentMoniker": "Data\\MySqlConnection.cs",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Data\\MySqlConnection.cs",
-              "RelativeToolTip": "Data\\MySqlConnection.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:06:57.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-29T14:05:06.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\.env",
-              "RelativeDocumentMoniker": ".env",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\.env",
-              "RelativeToolTip": ".env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-29T14:01:09.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-25T21:21:32.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:21:20.495Z"
+              "WhenOpened": "2025-06-29T16:59:27.299Z"
             }
           ]
         }

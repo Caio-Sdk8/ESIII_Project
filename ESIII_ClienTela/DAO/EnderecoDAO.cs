@@ -70,7 +70,7 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(EnderecoModel endereco)
+        public int Inserir(EnderecoModel endereco)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
@@ -79,8 +79,8 @@ namespace ESIII_ClienTela.DAO
                 INSERT INTO Endereco 
                 (cliente_id, cidade_id, tipoLogradouro_id, tipoResidencia_id, tipoEndereco_id, apelido, logradouro, numero, bairro, cep, obs) 
                 VALUES 
-                (@cliente_id, @cidade_id, @tipoLogradouro_id, @tipoResidencia_id, @tipoEndereco_id, @apelido, @logradouro, @numero, @bairro, @cep, @obs)";
-
+                (@cliente_id, @cidade_id, @tipoLogradouro_id, @tipoResidencia_id, @tipoEndereco_id, @apelido, @logradouro, @numero, @bairro, @cep, @obs);
+                SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@cliente_id", endereco.Cliente_id);
@@ -95,7 +95,8 @@ namespace ESIII_ClienTela.DAO
             cmd.Parameters.AddWithValue("@cep", endereco.Cep);
             cmd.Parameters.AddWithValue("@obs", endereco.Obs);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(EnderecoModel endereco)
@@ -149,4 +150,41 @@ namespace ESIII_ClienTela.DAO
             cmd.ExecuteNonQuery();
         }
     }
-}
+    public List<EnderecoModel> BuscarPorClienteId(int clienteId)
+        {
+            var enderecos = new List<EnderecoModel>();
+
+            using var conn = new MySqlConnection(_connectionString);
+            conn.Open();
+
+            string query = "SELECT * FROM Endereco WHERE clienteId = @clienteId";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@clienteId", clienteId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var endereco = new EnderecoModel
+                {
+                    Id = reader.GetInt32("id"),
+                    Apelido = reader.GetString("apelido"),
+                    Cliente_id = reader.GetInt32("clienteId"),
+                    Logradouro = reader.GetString("logradouro"),
+                    Numero = reader.GetString("numero"),
+                    Bairro = reader.GetString("bairro"),
+                    Cep = reader.GetString("cep"),
+                    Cidade_id = reader.GetInt32("cidadeId"),
+                    TipoEndereco_id = reader.GetInt32("tipoEnderecoId"),
+                    TipoLogradouro_id = reader.GetInt32("tipoLogradouroId"),
+                    TipoResidencia_id = reader.GetInt32("tiporesidenciaId"),
+                    Obs = reader.GetString("obs"),
+
+                };
+
+                enderecos.Add(endereco);
+            }
+
+            return enderecos;
+        }
+    }

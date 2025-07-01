@@ -6,7 +6,7 @@ namespace ESIII_ClienTela.DAO
     {
         Entidade ObterPorId(int id);
         List<Entidade> ListarTodos();
-        void Inserir(Entidade entidade);
+        int Inserir(Entidade entidade);
         void Atualizar(Entidade entidade);
         void Remover(int id);
     }

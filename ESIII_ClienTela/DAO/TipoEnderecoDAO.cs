@@ -50,17 +50,18 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(TipoEnderecoModel obj)
+        public int Inserir(TipoEnderecoModel obj)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "INSERT INTO TipoEndereco (tipo) VALUES (@tipo)";
+            string sql = "INSERT INTO TipoEndereco (tipo) VALUES (@tipo); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@tipo", obj.Tipo);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(TipoEnderecoModel obj)

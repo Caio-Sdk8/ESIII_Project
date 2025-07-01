@@ -54,19 +54,20 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(EstadoModel estado)
+        public int Inserir(EstadoModel estado)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "INSERT INTO Estado (nome, uf, pais_id) VALUES (@nome, @uf, @pais_id)";
+            string sql = "INSERT INTO Estado (nome, uf, pais_id) VALUES (@nome, @uf, @pais_id); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@nome", estado.Nome);
             cmd.Parameters.AddWithValue("@uf", estado.Uf);
             cmd.Parameters.AddWithValue("@pais_id", estado.Pais_id);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(EstadoModel estado)

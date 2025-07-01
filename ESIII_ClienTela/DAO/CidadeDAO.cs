@@ -52,18 +52,19 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(CidadeModel cidade)
+        public int Inserir(CidadeModel cidade)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "INSERT INTO Cidade (nome, estado_id) VALUES (@nome, @estado_id)";
+            string sql = "INSERT INTO Cidade (nome, estado_id) VALUES (@nome, @estado_id); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@nome", cidade.Nome);
             cmd.Parameters.AddWithValue("@estado_id", cidade.Estado_id);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(CidadeModel cidade)

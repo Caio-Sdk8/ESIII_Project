@@ -56,19 +56,20 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(TransacaoModel obj)
+        public int Inserir(TransacaoModel obj)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "INSERT INTO Transacao (cliente_id, data, valor) VALUES (@cliente_id, @data, @valor)";
+            string sql = "INSERT INTO Transacao (cliente_id, data, valor) VALUES (@cliente_id, @data, @valor); SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@cliente_id", obj.Cliente_id);
             cmd.Parameters.AddWithValue("@data", obj.Data);
             cmd.Parameters.AddWithValue("@valor", obj.Valor);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(TransacaoModel obj)

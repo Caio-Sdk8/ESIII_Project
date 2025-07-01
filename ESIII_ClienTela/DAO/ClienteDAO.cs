@@ -1,6 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using ESIII_ClienTela.Data;
+﻿using ESIII_ClienTela.Data;
 using ESIII_ClienTela.Models;
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 
 namespace ESIII_ClienTela.DAO
 {
@@ -62,7 +63,7 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(ClienteModel cliente)
+        public int Inserir(ClienteModel cliente)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
@@ -70,7 +71,8 @@ namespace ESIII_ClienTela.DAO
             string sql = @"INSERT INTO Cliente 
                             (nome, genero, dataNascimento, cpf, email, senha, status, ranking) 
                            VALUES 
-                            (@nome, @genero, @dataNascimento, @cpf, @email, @senha, @status, @ranking)";
+                            (@nome, @genero, @dataNascimento, @cpf, @email, @senha, @status, @ranking);
+                            SELECT LAST_INSERT_ID()";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@nome", cliente.Nome);
@@ -82,7 +84,8 @@ namespace ESIII_ClienTela.DAO
             cmd.Parameters.AddWithValue("@status", cliente.Status);
             cmd.Parameters.AddWithValue("@ranking", cliente.Ranking);
 
-            cmd.ExecuteNonQuery();
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(ClienteModel cliente)
@@ -126,6 +129,66 @@ namespace ESIII_ClienTela.DAO
             cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
+        }
+
+        public List<ClienteModel> BuscarClientesParams(string? nome, string? email, string? telefone, string? cpf)
+        {
+            var clientes = new List<ClienteModel>();
+
+            using var conn = MySqlConnectionDB.GetConnection();
+            conn.Open();
+
+            var query = @"
+                SELECT c.*
+                FROM Cliente c
+                LEFT JOIN Telefone t ON c.id = t.clienteId
+                WHERE 
+                    (@nome IS NULL OR c.nome LIKE @nome) AND
+                    (@email IS NULL OR c.email LIKE @email) AND
+                    (@telefone IS NULL OR t.numero LIKE @telefone)
+                    (@cpf IS NULL OR t.cpf LIKE @cpf)
+            ";
+
+            using var command = new MySqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@nome", string.IsNullOrWhiteSpace(nome) ? DBNull.Value : $"%{nome}%");
+            command.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(email) ? DBNull.Value : $"%{email}%");
+            command.Parameters.AddWithValue("@telefone", string.IsNullOrWhiteSpace(telefone) ? DBNull.Value : $"%{telefone}%");
+            command.Parameters.AddWithValue("@cpf", string.IsNullOrWhiteSpace(cpf) ? DBNull.Value : $"%{cpf}%");
+
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                var cliente = new ClienteModel
+                {
+                    Id = reader.GetInt32("id"),
+                    Nome = reader.GetString("nome"),
+                    Genero = reader.GetString("genero"),
+                    DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
+                    Cpf = reader.GetString("cpf"),
+                    Email = reader.GetString("email"),
+                    Senha = reader.GetString("senha"),
+                    Status = reader.GetString("status"),
+                    Ranking = reader.GetInt32("ranking")
+                };
+
+                clientes.Add(cliente);
+            }
+
+            return clientes;
+        }
+
+        public bool ExisteRanking(int ranking)
+        {
+            using var conn = MySqlConnectionDB.GetConnection();
+            conn.Open();
+
+            string sql = "SELECT COUNT(*) FROM Cliente WHERE ranking = @ranking";
+            using var cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@ranking", ranking);
+
+            long count = (long)cmd.ExecuteScalar();
+            return count > 0;
         }
     }
 }

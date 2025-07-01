@@ -39,7 +39,7 @@ namespace ESIII_ClienTela.DAO
             return lista;
         }
 
-        public void Inserir(CartaoDeCreditoModel c)
+        public int Inserir(CartaoDeCreditoModel c)
         {
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
@@ -48,11 +48,14 @@ namespace ESIII_ClienTela.DAO
                 INSERT INTO CartaoDeCredito 
                 (cliente_id, numero, nomeImpresso, codSeguranca, band) 
                 VALUES 
-                (@cliente_id, @numero, @nomeImpresso, @codSeguranca, @band)";
+                (@cliente_id, @numero, @nomeImpresso, @codSeguranca, @band);
+                SELECT LAST_INSERT_ID()";
 
             using var cmd = new MySqlCommand(sql, conn);
             PreencherParametros(cmd, c);
-            cmd.ExecuteNonQuery();
+
+            int idGerado = Convert.ToInt32(cmd.ExecuteScalar());
+            return idGerado;
         }
 
         public void Atualizar(CartaoDeCreditoModel c)
