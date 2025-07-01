@@ -9,7 +9,7 @@ namespace ESIII_ClienTela.Strategys
         {
             bool bandeiraValida = Enum.TryParse(typeof(BandeiraCartaoEnum), Entidade.Band, ignoreCase: true, out _);
 
-            return bandeiraValida ? "OK" : $"Erro: Bandeira '{Entidade.Band}' não é reconhecida.";
+            return bandeiraValida ? "" : $"Erro: Bandeira '{Entidade.Band}' não é reconhecida.";
         }
     }
 }

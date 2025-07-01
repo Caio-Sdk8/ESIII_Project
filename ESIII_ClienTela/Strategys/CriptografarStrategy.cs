@@ -15,7 +15,7 @@ namespace ESIII_ClienTela.Strategys
             catch (Exception ex) {
                 return ex.Message;
             }
-            return "ok";
+            return "";
         }
     }
 }

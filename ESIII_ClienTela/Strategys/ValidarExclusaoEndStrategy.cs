@@ -18,7 +18,7 @@ namespace ESIII_ClienTela.Strategys
 
             }
 
-            return "ok";
+            return "";
         }
     }
 }

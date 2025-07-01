@@ -33,7 +33,7 @@ namespace ESIII_ClienTela.Strategys
                 }
             }
 
-            return string.IsNullOrEmpty(erros) ? "OK" : $"Erros: {erros.Trim()}";
+            return string.IsNullOrEmpty(erros) ? "" : $"Erros: {erros.Trim()}";
         }
     }
 }

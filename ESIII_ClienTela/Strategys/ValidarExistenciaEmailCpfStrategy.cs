@@ -17,7 +17,7 @@ namespace ESIII_ClienTela.Strategys
                 return "E-mail ou Cpf já cadastrados";
             }
 
-            return "Ok";
+            return "";
         }
     }
 }

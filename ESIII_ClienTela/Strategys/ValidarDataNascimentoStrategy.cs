@@ -11,7 +11,7 @@ namespace ESIII_ClienTela.Strategys
                 return "A data de nascimento não pode ser igual ou posterior à data de hoje";
             }
 
-            return "Ok";
+            return "";
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ESIII_ClienTela.Strategys
                 return "A senha deve conter ao menos 8 caracteres, uma letra maiúscula, uma minúscula e um caractere especial.";
             }
 
-            return string.Empty;
+            return "";
         }
     }
 }
