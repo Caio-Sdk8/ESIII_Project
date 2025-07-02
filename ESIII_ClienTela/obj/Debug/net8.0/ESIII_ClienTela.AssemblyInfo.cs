@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da868d5940fe168a6925120120df95fae93d55e1")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e5c1ccc8cbd8c42a3afdd31d9dc7fd643b68530")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
