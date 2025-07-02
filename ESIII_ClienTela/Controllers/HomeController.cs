@@ -217,5 +217,16 @@ namespace ESIII_ClienTela.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        public IActionResult AtualizarEnderecos([FromBody] List<EnderecoModel> enderecos)
+        {
+            foreach (var endereco in enderecos)
+            {
+                // Atualize cada endereço no banco
+                new EnderecoDAO().Atualizar(endereco);
+            }
+            return Ok();
+        }
     }
 }

@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Limpar listas e resetar contadores
             if (typeof adicionarTelefoneEdicao !== 'undefined') adicionarTelefoneEdicao.count = 0;
-            if (typeof adicionarEnderecoEdicao !== 'undefined') adicionarEnderecoEdicao.count = 0;
+            if (typeof adicionarEnderecoEdicaoCliente !== 'undefined') adicionarEnderecoEdicaoCliente.count = 0;
             if (typeof adicionarCartaoEdicao !== 'undefined') adicionarCartaoEdicao.count = 0;
 
             var accordionEnderecos = modalEditar.querySelector("#edit-accordionEnderecos");
@@ -264,8 +264,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Preencher endereços
                 if (data.enderecos && Array.isArray(data.enderecos)) {
                     data.enderecos.forEach(function (end) {
-                        if (typeof adicionarEnderecoEdicao === 'function') {
-                            adicionarEnderecoEdicao(
+                        if (typeof adicionarEnderecoEdicaoCliente === 'function') {
+                            adicionarEnderecoEdicaoCliente(
                                 end.tipoEndereco_id || end.tipoEnderecoId,
                                 end.tipoResidencia_id || end.tipoResidenciaId,
                                 end.tipoLogradouro_id || end.tipoLogradouroId,
@@ -300,43 +300,83 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Modal de sucesso para edição de endereços
-    const formEditarEnderecos = document.getElementById('formEditarEnderecos');
-    if (formEditarEnderecos) {
-        formEditarEnderecos.addEventListener('submit', function (e) {
-            e.preventDefault();
-            // // Backend: Chamada para atualizar endereços do cliente
-            // // $.ajax({ url: '/clientes/' + id + '/enderecos', type: 'PUT', data: { ...dados... } }).done(function(resp) { ... });
-            if (typeof mostrarModalSucessoEnderecos === 'function') {
-                mostrarModalSucessoEnderecos();
-            }
-            // Fechar o modal após salvar
-            const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarEnderecos'));
-            if (modal) modal.hide();
-        });
-    }
-
     // Abrir modal de edição de endereços ao clicar no botão "Alterar Endereços"
     document.querySelectorAll('button[title="Alterar Endereços"]').forEach(btn => {
         btn.addEventListener('click', function () {
-            // // Backend: Buscar endereços do cliente pelo id
-            // // $.get('/clientes/' + id + '/enderecos', function(data) { ...preencher campos... });
-
+            const idCliente = btn.getAttribute('data-id');
             // Limpa a lista de endereços do modal de edição
             const accordion = document.querySelector('#accordionEnderecosEdicao');
             if (accordion) accordion.innerHTML = '';
-            // // Backend: Preencher endereços buscados
-            // // Exemplo: data.forEach(e => adicionarEnderecoEdicao(e.tipo, ...));
 
-            // Adiciona um endereço vazio para edição (mock)
-            if (typeof adicionarEnderecoEdicao === 'function') {
-                adicionarEnderecoEdicao();
-            }
+            // Busca endereços do cliente pelo id
+            $.get('/Home/ObterCliente', { id: idCliente }, function (data) {
+                if (data.enderecos && Array.isArray(data.enderecos)) {
+                    data.enderecos.forEach(function (end) {
+                        // Chama a função já existente para inserir o endereço no modal de edição
+                        adicionarEnderecoEdicao(
+                            end.tipoEndereco_id || end.tipoEnderecoId || '', // id do tipo de endereço
+                            end.tipoResidencia_id || end.tipoResidenciaId || '',
+                            end.tipoLogradouro_id || end.tipoLogradouroId || '',
+                            end.logradouro || '',
+                            end.numero || '',
+                            end.bairro || '',
+                            end.cep || '',
+                            end.cidade_id || end.cidadeId || '',
+                            end.estado || '',
+                            end.pais || '',
+                            end.obs || ''
+                        );
+                    });
+                }
+            });
+
             // Abre o modal
             var modal = new bootstrap.Modal(document.getElementById('modalEditarEnderecos'));
             modal.show();
         });
     });
+
+    // Modal de sucesso para edição de endereços
+    const formEditarEnderecos = document.getElementById('formEditarEnderecos');
+    if (formEditarEnderecos) {
+        formEditarEnderecos.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Monta array de endereços
+            const enderecos = [];
+            document.querySelectorAll('#accordionEnderecosEdicao .accordion-item').forEach(function (item) {
+                enderecos.push({
+                    Id: parseInt(item.getAttribute('data-id'), 10), // se tiver o id
+                    TipoEndereco_id: parseInt(item.querySelector('select[name="EditTipoEndereco[]"]').value, 10),
+                    TipoResidencia_id: parseInt(item.querySelector('select[name="EditTipoResidencia[]"]').value, 10),
+                    TipoLogradouro_id: parseInt(item.querySelector('select[name="EditTipoLogradouro[]"]').value, 10),
+                    Logradouro: item.querySelector('input[name="EditLogradouro[]"]').value,
+                    Numero: item.querySelector('input[name="EditNumero[]"]').value,
+                    Bairro: item.querySelector('input[name="EditBairro[]"]').value,
+                    Cep: item.querySelector('input[name="EditCEP[]"]').value,
+                    Cidade_id: parseInt(item.querySelector('select[name="EditCidade[]"]').value, 10),
+                    Obs: item.querySelector('textarea[name="EditObservacoes[]"]').value,
+                    Cliente_id: idCliente 
+                });
+            });
+
+            // Envia para o backend
+            $.ajax({
+                url: '/Home/AtualizarEnderecos',
+                type: 'POST',
+                data: JSON.stringify(enderecos),
+                contentType: 'application/json',
+                success: function () {
+                    mostrarModalSucessoEnderecos();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarEnderecos'));
+                    if (modal) modal.hide();
+                },
+                error: function () {
+                    mostrarModalErro('Erro ao atualizar endereços.');
+                }
+            });
+        });
+    }
 
     // Abrir modal de senha com o id do cliente
     document.querySelectorAll('button[title="Alterar Senha"]').forEach(btn => {
@@ -366,5 +406,42 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
     });
+
+    // Preencher endereços no modalEditarEnderecos
+    var modalEditarEnderecos = document.getElementById('modalEditarEnderecos');
+    if (modalEditarEnderecos) {
+        modalEditarEnderecos.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var id = button.getAttribute('data-id');
+
+            // Limpar endereços existentes
+            var accordionEnderecos = modalEditarEnderecos.querySelector("#accordionEnderecosEdicao");
+            if (accordionEnderecos) accordionEnderecos.innerHTML = '';
+
+            // Buscar dados do cliente via AJAX
+            $.get('/Home/ObterCliente', { id: id }, function (data) {
+                // Preencher endereços
+                if (data.enderecos && Array.isArray(data.enderecos)) {
+                    data.enderecos.forEach(function (end) {
+                        if (typeof adicionarEnderecoEdicao === 'function') {
+                            adicionarEnderecoEdicao(
+                                end.tipoEndereco_id || end.tipoEnderecoId,
+                                end.tipoResidencia_id || end.tipoResidenciaId,
+                                end.tipoLogradouro_id || end.tipoLogradouroId,
+                                end.logradouro,
+                                end.numero,
+                                end.bairro,
+                                end.cep,
+                                end.cidade_id || end.cidadeId,
+                                end.estado,
+                                end.pais,
+                                end.obs
+                            );
+                        }
+                    });
+                }
+            });
+        });
+    }
 });
 
