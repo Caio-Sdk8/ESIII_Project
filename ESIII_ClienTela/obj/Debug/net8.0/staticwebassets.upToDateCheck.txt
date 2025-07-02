@@ -8,6 +8,7 @@ wwwroot\images\icon-star.png
 wwwroot\images\icon-trash.png
 wwwroot\images\icon-truck.png
 wwwroot\js\cartoes.js
+wwwroot\js\cliente.js
 wwwroot\js\enderecos.js
 wwwroot\js\modais.js
 wwwroot\js\site.js
@@ -69,4 +70,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\js\cliente.js

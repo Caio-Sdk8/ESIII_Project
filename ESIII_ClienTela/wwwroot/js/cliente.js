@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.telefones && Array.isArray(data.telefones)) {
                     data.telefones.forEach(function (tel) {
                         if (typeof adicionarTelefoneEdicao === 'function') {
-                            adicionarTelefoneEdicao(tel.tipoTelefoneId, tel.ddd, tel.numero);
+                            adicionarTelefoneEdicao(tel.tipoTelefone_id, tel.ddd, tel.numero);
                         }
                     });
                 }

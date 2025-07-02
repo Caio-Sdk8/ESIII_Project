@@ -1,33 +1,3 @@
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\appsettings.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.staticwebassets.runtime.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.staticwebassets.endpoints.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.exe
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.deps.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.runtimeconfig.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.dll
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.pdb
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfoInputs.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfo.cs
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.csproj.CoreCompileInputs.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cs
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.sourcelink.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\bundle\ESIII_ClienTela.styles.css
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\projectbundle\ESIII_ClienTela.bundle.scp.css
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.dll
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\refint\ESIII_ClienTela.dll
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
-C:\Users\caioa\Documents\ESIII_PROJ\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.json
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.staticwebassets.runtime.json
@@ -37,6 +7,7 @@ C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_Cl
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.runtimeconfig.json
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.pdb
+C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\DotNetEnv.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Google.Protobuf.dll
@@ -87,61 +58,3 @@ C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\refint\E
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
-C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.Development.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\appsettings.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.staticwebassets.runtime.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.exe
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.deps.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.runtimeconfig.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ESIII_ClienTela.pdb
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\DotNetEnv.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Google.Protobuf.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Compression.LZ4.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Hash.xxHash.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\MySql.Data.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Sprache.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.IO.Pipelines.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Text.Encodings.Web.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Text.Json.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ZstdSharp.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.csproj.AssemblyReference.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.GeneratedMSBuildEditorConfig.editorconfig
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfoInputs.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.AssemblyInfo.cs
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.csproj.CoreCompileInputs.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.MvcApplicationPartsAssemblyInfo.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.RazorAssemblyInfo.cs
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.sourcelink.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.build.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.development.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.ESIII_ClienTela.Microsoft.AspNetCore.StaticWebAssets.props
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.build.ESIII_ClienTela.props
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ESIII_ClienTela.props
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ESIII_ClienTela.props
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\staticwebassets.pack.json
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\bundle\ESIII_ClienTela.styles.css
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\scopedcss\projectbundle\ESIII_ClienTela.bundle.scp.css
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_Cl.E2A00CEF.Up2Date
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\refint\ESIII_ClienTela.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
