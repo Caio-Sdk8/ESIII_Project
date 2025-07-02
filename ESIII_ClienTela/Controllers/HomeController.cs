@@ -100,5 +100,61 @@ namespace ESIII_ClienTela.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public IActionResult ObterCliente(int id)
+        {
+            // Use a Fachada para buscar o cliente
+            var cliente = fachada.ObterPorId(id);
+            if (cliente == null)
+                return NotFound();
+
+            return Json(cliente);
+        }
+
+        [HttpGet]
+        public IActionResult ListarTiposTelefone()
+        {
+            var tipos = new TipoTelefoneDAO().ListarTodos();
+            return Json(tipos);
+        }
+
+        [HttpGet]
+        public IActionResult ListarTiposEndereco()
+        {
+            var tipos = new TipoEnderecoDAO().ListarTodos();
+            return Json(tipos);
+        }
+
+        [HttpGet]
+        public IActionResult ListarTiposResidencia()
+        {
+            var tipos = new TipoResidenciaDAO().ListarTodos();
+            return Json(tipos);
+        }
+
+        [HttpGet]
+        public IActionResult ListarTiposLogradouro()
+        {
+            var tipos = new TipoLogradouroDAO().ListarTodos();
+            return Json(tipos);
+        }
+
+        [HttpGet]
+        public IActionResult ListarCidades()
+        {
+            var cidades = new CidadeDAO().ListarTodos();
+            return Json(cidades);
+        }
+
+        [HttpGet]
+        public IActionResult ListarBandeirasCartao()
+        {
+            var bandeiras = System.Enum.GetValues(typeof(ESIII_ClienTela.Enums.BandeiraCartaoEnum))
+                .Cast<ESIII_ClienTela.Enums.BandeiraCartaoEnum>()
+                .Select(b => new { id = (int)b, nome = b.ToString() })
+                .ToList();
+            return Json(bandeiras);
+        }
     }
 }

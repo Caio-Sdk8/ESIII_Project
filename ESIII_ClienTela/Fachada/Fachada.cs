@@ -90,7 +90,9 @@ namespace ESIII_ClienTela.Fachada
             try
             {
                 CliDao.AtualizarSenha(id, BCrypt.Net.BCrypt.HashPassword(senha));
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return ex.Message;
             }
             return "OK";
@@ -172,6 +174,11 @@ namespace ESIII_ClienTela.Fachada
             //tem que validar se tem endereço dos dois tipos, dá pra fazer isso de um jeito, mas ai depende do front
 
             return response;
+        }
+        
+        public ClienteModel ObterPorId(int id)
+        {
+            return CliDao.ObterPorId(id);
         }
 
     }

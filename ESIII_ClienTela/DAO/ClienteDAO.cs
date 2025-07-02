@@ -13,27 +13,114 @@ namespace ESIII_ClienTela.DAO
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "SELECT * FROM Cliente WHERE id = @id";
+            string sql = @"
+                SELECT 
+                    c.id AS clienteId, c.nome, c.genero, c.dataNascimento, c.cpf, c.email, c.senha, c.status, c.ranking,
+
+                    t.id AS telefoneId, t.ddd AS telefoneDdd, t.numero AS telefoneNumero, t.tipoTelefoneId,
+
+                    e.id AS enderecoId, e.apelido AS enderecoApelido, e.logradouro AS enderecoLogradouro, 
+                    e.numero AS enderecoNumero, e.bairro AS enderecoBairro, e.cep AS enderecoCep, e.obs AS enderecoObs,
+                    e.cidadeId, e.tipoLogradouroId, e.tipoResidenciaId, e.tipoEnderecoId,
+
+                    ct.id AS cartaoId, ct.numero AS cartaoNumero, ct.nomeImpresso, ct.codSeguranca, 
+                    ct.band AS cartaoBandeira, ct.preferencial
+
+                FROM Cliente c
+                LEFT JOIN Telefone t ON t.clienteId = c.id
+                LEFT JOIN Endereco e ON e.clienteId = c.id
+                LEFT JOIN CartaoDeCredito ct ON ct.clienteId = c.id
+                WHERE c.id = @id
+                ORDER BY c.id;
+            ";
+
             using var cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@id", id);
 
             using var reader = cmd.ExecuteReader();
-            if (reader.Read())
+
+            ClienteModel cliente = null;
+
+            while (reader.Read())
             {
-                return new ClienteModel
+                if (cliente == null)
                 {
-                    Id = reader.GetInt32("id"),
-                    Nome = reader.GetString("nome"),
-                    Genero = reader.GetString("genero"),
-                    DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
-                    Cpf = reader.GetString("cpf"),
-                    Email = reader.GetString("email"),
-                    Senha = reader.GetString("senha"),
-                    Status = reader.GetBoolean(reader.GetOrdinal("status")),
-                    Ranking = reader.GetInt32("ranking")
-                };
+                    cliente = new ClienteModel
+                    {
+                        Id = reader.GetInt32("clienteId"),
+                        Nome = reader.GetString("nome"),
+                        Genero = reader.GetString("genero"),
+                        DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
+                        Cpf = reader.GetString("cpf"),
+                        Email = reader.GetString("email"),
+                        Senha = reader.GetString("senha"),
+                        Status = reader.GetBoolean("status"),
+                        Ranking = reader.GetInt32("ranking"),
+                        Telefones = new(),
+                        Enderecos = new(),
+                        Cartoes = new()
+                    };
+                }
+
+                if (!reader.IsDBNull(reader.GetOrdinal("telefoneId")))
+                {
+                    int telId = reader.GetInt32("telefoneId");
+                    if (!cliente.Telefones.Any(t => t.Id == telId))
+                    {
+                        cliente.Telefones.Add(new TelefoneModel
+                        {
+                            Id = telId,
+                            Cliente_id = cliente.Id,
+                            Ddd = reader.GetString("telefoneDdd"),
+                            Numero = reader.GetString("telefoneNumero"),
+                            TipoTelefone_id = reader.IsDBNull("tipoTelefoneId") ? 0 : reader.GetInt32("tipoTelefoneId")
+                        });
+                    }
+                }
+
+                if (!reader.IsDBNull(reader.GetOrdinal("enderecoId")))
+                {
+                    int endId = reader.GetInt32("enderecoId");
+                    if (!cliente.Enderecos.Any(e => e.Id == endId))
+                    {
+                        cliente.Enderecos.Add(new EnderecoModel
+                        {
+                            Id = endId,
+                            Cliente_id = cliente.Id,
+                            Apelido = reader.GetString("enderecoApelido"),
+                            Logradouro = reader.GetString("enderecoLogradouro"),
+                            Numero = reader.GetString("enderecoNumero"),
+                            Bairro = reader.GetString("enderecoBairro"),
+                            Cep = reader.GetString("enderecoCep"),
+                            Obs = reader.GetString("enderecoObs"),
+                            Cidade_id = reader.GetInt32("cidadeId"),
+                            TipoLogradouro_id = reader.GetInt32("tipoLogradouroId"),
+                            TipoResidencia_id = reader.GetInt32("tipoResidenciaId"),
+                            TipoEndereco_id = reader.GetInt32("tipoEnderecoId")
+                        });
+                    }
+                }
+
+                if (!reader.IsDBNull(reader.GetOrdinal("cartaoId")))
+                {
+                    int cartaoId = reader.GetInt32("cartaoId");
+                    if (!cliente.Cartoes.Any(c => c.Id == cartaoId))
+                    {
+                        cliente.Cartoes.Add(new CartaoDeCreditoModel
+                        {
+                            Id = cartaoId,
+                            Cliente_id = cliente.Id,
+                            Numero = reader.GetString("cartaoNumero"),
+                            NomeImpresso = reader.GetString("nomeImpresso"),
+                            CodSeguranca = reader.GetString("codSeguranca"),
+                            Band = reader.GetString("cartaoBandeira"),
+                            Preferencial = reader.IsDBNull("preferencial") ? false : reader.GetBoolean("preferencial")
+                        });
+                    }
+                }
             }
-            return null;
+
+            return cliente;
         }
         public List<ClienteModel> ListarTodos()
         {

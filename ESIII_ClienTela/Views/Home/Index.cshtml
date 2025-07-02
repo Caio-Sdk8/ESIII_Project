@@ -349,47 +349,7 @@
                     </div>
                     <div id="edit-telefones-lista">
                         <div class="accordion" id="edit-accordionTelefones">
-                            <div class="accordion-item" id="edit-telefone-item-0">
-                                <h2 class="accordion-header" id="edit-headingTelefone0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseTelefone0" aria-expanded="false" aria-controls="edit-collapseTelefone0">
-                                        Telefone 1
-                                    </button>
-                                </h2>
-                                <div id="edit-collapseTelefone0" class="accordion-collapse collapse show" aria-labelledby="edit-headingTelefone0" data-bs-parent="#edit-accordionTelefones">
-                                    <div class="accordion-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
-                                                    <label>Tipo de Telefone<span class="text-danger">*</span></label>
-                                                    <select class="form-control" name="EditTipoTelefone[]">
-                                                        <option value="">Selecione</option>
-                                                        <option value="Celular" selected>Celular</option>
-                                                        <option value="Residencial">Residencial</option>
-                                                        <option value="Comercial">Comercial</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-2">
-                                                    <label>DDD<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditDDD[]" maxlength="3" value="11" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <div class="form-group mb-2">
-                                                    <label>Número do Telefone<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditPhone[]" value="90000-0000" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Telefone" disabled>
-                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Telefones serão inseridos aqui via JS -->
                         </div>
                     </div>
                     <hr />
@@ -403,85 +363,7 @@
                     </div>
                     <div id="edit-enderecos-lista">
                         <div class="accordion" id="edit-accordionEnderecos">
-                            <div class="accordion-item" id="edit-endereco-item-0">
-                                <h2 class="accordion-header" id="edit-headingEndereco0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseEndereco0" aria-expanded="false" aria-controls="edit-collapseEndereco0">
-                                        Endereço Cobrança
-                                    </button>
-                                </h2>
-                                <div id="edit-collapseEndereco0" class="accordion-collapse collapse show" aria-labelledby="edit-headingEndereco0" data-bs-parent="#edit-accordionEnderecos">
-                                    <div class="accordion-body">
-                                        <input type="hidden" name="EditTipoEndereco[]" value="Cobranca" />
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
-                                                    <label>Tipo de Residência<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditTipoResidencia[]" value="Apartamento" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
-                                                    <label>Tipo de Logradouro<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditTipoLogradouro[]" value="Rua" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
-                                                    <label>Logradouro<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditLogradouro[]" value="Exemplo de Rua" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-2">
-                                                    <label>Número<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditNumero[]" value="123" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
-                                                    <label>Bairro<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditBairro[]" value="Centro" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>CEP<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditCEP[]" maxlength="9" value="01234-567" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>Cidade<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditCidade[]" value="São Paulo" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-2">
-                                                    <label>Estado<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditEstado[]" value="SP" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>País<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditPais[]" value="Brasil" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-2">
-                                                    <label>Observações</label>
-                                                    <textarea class="form-control" name="EditObservacoes[]">Apartamento 101</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Endereço" disabled>
-                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Endereços serão inseridos aqui via JS -->
                         </div>
                     </div>
                     <hr />
@@ -495,58 +377,7 @@
                     </div>
                     <div id="edit-cartoes-lista">
                         <div class="accordion" id="edit-accordionCartoes">
-                            <div class="accordion-item" id="edit-cartao-item-0">
-                                <h2 class="accordion-header" id="edit-headingCartao0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseCartao0" aria-expanded="false" aria-controls="edit-collapseCartao0">
-                                        Cartão 1
-                                        <span class="ms-2" id="edit-icon-principal-0" style="cursor:pointer;">
-                                            <img src="/images/icon-star-full.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
-                                        </span>
-                                    </button>
-                                </h2>
-                                <div id="edit-collapseCartao0" class="accordion-collapse collapse show" aria-labelledby="edit-headingCartao0" data-bs-parent="#edit-accordionCartoes">
-                                    <div class="accordion-body">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>Número do Cartão<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditNumeroCartao[]" maxlength="19" value="1234 5678 9012 3456" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditNomeCartao[]" value="CLIENTE EXEMPLO" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group mb-2">
-                                                    <label>Bandeira<span class="text-danger">*</span></label>
-                                                    <select class="form-control" name="EditBandeira[]">
-                                                        <option value="">Selecione</option>
-                                                        <option value="MasterCard">MasterCard</option>
-                                                        <option value="Visa">Visa</option>
-                                                        <option value="Hipercard">Hipercard</option>
-                                                        <option value="American Express">American Express</option>
-                                                        <option value="Elo">Elo</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-2">
-                                                    <label>CVV<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="EditCVV[]" maxlength="4" value="123" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1 d-flex align-items-end">
-                                                <button type="button" class="btn btn-link text-danger p-0" title="Remover Cartão" disabled>
-                                                    <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Cartões serão inseridos aqui via JS -->
                         </div>
                     </div>
                 </div>

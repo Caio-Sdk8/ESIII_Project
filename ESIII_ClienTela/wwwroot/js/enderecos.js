@@ -159,103 +159,74 @@ function abrirEscolhaTipoEnderecoEdicao() {
 
 // Adiciona um endereço na lista dinâmica do modal de edição
 function adicionarEnderecoEdicao(
-    tipo = '',
-    tipoResidencia = '',
-    tipoLogradouro = '',
-    logradouro = '',
-    numero = '',
-    bairro = '',
-    cep = '',
-    cidade = '',
-    estado = '',
-    pais = '',
-    observacoes = ''
+    tipoEnderecoId = '', tipoResidenciaId = '', tipoLogradouroId = '', logradouro = '', numero = '', bairro = '', cep = '', cidadeId = '', estado = '', pais = '', obs = ''
 ) {
-    // // Backend: Se desejar salvar endereço de edição imediatamente, faça uma chamada AJAX aqui
-    // // $.post('/api/enderecos', { tipo, ...dados... }).done(function(resp) { ... });
-
-    if (!tipo) return; // Só adiciona se o tipo foi escolhido
-
-    if (tipo === 'Cobranca') {
-        // Garante que só exista um endereço de cobrança
-        const existe = !!document.querySelector('#edit-accordionEnderecos input[name="EditTipoEndereco[]"][value="Cobranca"]');
-        if (existe) return;
-    }
-
     if (typeof adicionarEnderecoEdicao.count === 'undefined') {
         adicionarEnderecoEdicao.count = 0;
     }
     const idx = adicionarEnderecoEdicao.count++;
-    const tipoLabel = tipo === 'Cobranca' ? 'Cobrança' : (tipo === 'Entrega' ? 'Entrega' : '');
     const html = `
         <div class="accordion-item" id="edit-endereco-item-${idx}">
             <h2 class="accordion-header" id="edit-headingEndereco${idx}">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseEndereco${idx}" aria-expanded="false" aria-controls="edit-collapseEndereco${idx}">
-                    Endereço ${tipoLabel}
+                    Endereço ${idx + 1}
                 </button>
             </h2>
             <div id="edit-collapseEndereco${idx}" class="accordion-collapse collapse show" aria-labelledby="edit-headingEndereco${idx}" data-bs-parent="#edit-accordionEnderecos">
                 <div class="accordion-body">
-                    <input type="hidden" name="EditTipoEndereco[]" value="${tipo}" />
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group mb-2">
-                                <label>Tipo de Residência<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditTipoResidencia[]" value="${tipoResidencia}" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-2">
-                                <label>Tipo de Logradouro<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditTipoLogradouro[]" value="${tipoLogradouro}" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-2">
-                                <label>Logradouro<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditLogradouro[]" value="${logradouro}" />
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group mb-2">
-                                <label>Número<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditNumero[]" value="${numero}" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-2">
-                                <label>Bairro<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditBairro[]" value="${bairro}" />
+                                <label>Tipo de Endereço<span class="text-danger">*</span></label>
+                                <select class="form-control" name="EditTipoEndereco[]"></select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-2">
-                                <label>CEP<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditCEP[]" maxlength="9" value="${cep}" />
+                                <label>Tipo de Residência<span class="text-danger">*</span></label>
+                                <select class="form-control" name="EditTipoResidencia[]"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-2">
+                                <label>Tipo de Logradouro<span class="text-danger">*</span></label>
+                                <select class="form-control" name="EditTipoLogradouro[]"></select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-2">
                                 <label>Cidade<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditCidade[]" value="${cidade}" />
+                                <select class="form-control" name="EditCidade[]"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-2">
+                                <label>Logradouro<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditLogradouro[]" value="${logradouro || ''}" />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group mb-2">
-                                <label>Estado<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditEstado[]" value="${estado}" />
+                                <label>Número<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditNumero[]" value="${numero || ''}" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-2">
-                                <label>País<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditPais[]" value="${pais}" />
+                                <label>Bairro<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditBairro[]" value="${bairro || ''}" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-2">
+                                <label>CEP<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditCEP[]" maxlength="9" value="${cep || ''}" />
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group mb-2">
                                 <label>Observações</label>
-                                <textarea class="form-control" name="EditObservacoes[]">${observacoes}</textarea>
+                                <textarea class="form-control" name="EditObservacoes[]">${obs || ''}</textarea>
                             </div>
                         </div>
                         <div class="col-md-1 d-flex align-items-end">
@@ -268,7 +239,43 @@ function adicionarEnderecoEdicao(
             </div>
         </div>`;
     document.querySelector("#edit-accordionEnderecos").insertAdjacentHTML('beforeend', html);
-    $('input[name="EditCEP[]"]').mask('00000-000');
+
+    // Preencher selects via AJAX
+    $.get('/Home/ListarTiposEndereco', function (tipos) {
+        let $select = $(`#edit-endereco-item-${idx} select[name="EditTipoEndereco[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        tipos.forEach(function (tipo) {
+            let selected = tipo.id == tipoEnderecoId ? 'selected' : '';
+            $select.append(`<option value="${tipo.id}" ${selected}>${tipo.tipo}</option>`);
+        });
+    });
+    $.get('/Home/ListarTiposResidencia', function (tipos) {
+        let $select = $(`#edit-endereco-item-${idx} select[name="EditTipoResidencia[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        tipos.forEach(function (tipo) {
+            let selected = tipo.id == tipoResidenciaId ? 'selected' : '';
+            $select.append(`<option value="${tipo.id}" ${selected}>${tipo.tipo}</option>`);
+        });
+    });
+    $.get('/Home/ListarTiposLogradouro', function (tipos) {
+        let $select = $(`#edit-endereco-item-${idx} select[name="EditTipoLogradouro[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        tipos.forEach(function (tipo) {
+            let selected = tipo.id == tipoLogradouroId ? 'selected' : '';
+            $select.append(`<option value="${tipo.id}" ${selected}>${tipo.tipo}</option>`);
+        });
+    });
+    $.get('/Home/ListarCidades', function (cidades) {
+        let $select = $(`#edit-endereco-item-${idx} select[name="EditCidade[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        cidades.forEach(function (cidade) {
+            let selected = cidade.id == cidadeId ? 'selected' : '';
+            $select.append(`<option value="${cidade.id}" ${selected}>${cidade.nome}</option>`);
+        });
+    });
+
+    // Máscara para CEP
+    $(`#edit-endereco-item-${idx} input[name="EditCEP[]"]`).mask('00000-000');
 }
 
 // Remove um endereço do modal de edição

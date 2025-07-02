@@ -109,10 +109,7 @@ function atualizarIconesCartaoPrincipal() {
 }
 
 // Adiciona um cartão na lista dinâmica do modal de edição
-function adicionarCartaoEdicao(numero = '', nomeCartao = '', bandeira = '', cvv = '', principal = false) {
-    // // Backend: Se desejar salvar cartão de edição imediatamente, faça uma chamada AJAX aqui
-    // // $.post('/api/cartoes', { numero, nomeCartao, bandeira, cvv, principal }).done(function(resp) { ... });
-
+function adicionarCartaoEdicao(numero = '', nomeImpresso = '', codSeguranca = '', bandeira = '', preferencial = false) {
     if (typeof adicionarCartaoEdicao.count === 'undefined') {
         adicionarCartaoEdicao.count = 0;
     }
@@ -122,47 +119,43 @@ function adicionarCartaoEdicao(numero = '', nomeCartao = '', bandeira = '', cvv 
             <h2 class="accordion-header" id="edit-headingCartao${idx}">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edit-collapseCartao${idx}" aria-expanded="false" aria-controls="edit-collapseCartao${idx}">
                     Cartão ${idx + 1}
-                    <span class="ms-2" id="edit-icon-principal-${idx}" style="cursor:pointer;" onclick="definirPrincipalCartaoEdicao(${idx})" title="Definir como principal">
-                        <img src="/images/${principal ? 'icon-star-full' : 'icon-star'}.png" alt="Principal" width="20" height="20" style="vertical-align:middle;" />
-                    </span>
                 </button>
             </h2>
             <div id="edit-collapseCartao${idx}" class="accordion-collapse collapse show" aria-labelledby="edit-headingCartao${idx}" data-bs-parent="#edit-accordionCartoes">
                 <div class="accordion-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group mb-2">
                                 <label>Número do Cartão<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditNumeroCartao[]" maxlength="19" value="${numero}" />
+                                <input type="text" class="form-control" name="EditNumeroCartao[]" maxlength="19" value="${numero || ''}" />
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group mb-2">
-                                <label>Nome Impresso no Cartão<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditNomeCartao[]" value="${nomeCartao}" />
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group mb-2">
-                                <label>Bandeira<span class="text-danger">*</span></label>
-                                <select class="form-control" name="EditBandeira[]">
-                                    <option value="">Selecione</option>
-                                    <option value="MasterCard" ${bandeira === 'MasterCard' ? 'selected' : ''}>MasterCard</option>
-                                    <option value="Visa" ${bandeira === 'Visa' ? 'selected' : ''}>Visa</option>
-                                    <option value="Hipercard" ${bandeira === 'Hipercard' ? 'selected' : ''}>Hipercard</option>
-                                    <option value="American Express" ${bandeira === 'American Express' ? 'selected' : ''}>American Express</option>
-                                    <option value="Elo" ${bandeira === 'Elo' ? 'selected' : ''}>Elo</option>
-                                </select>
+                                <label>Nome Impresso<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditNomeImpresso[]" value="${nomeImpresso || ''}" />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group mb-2">
-                                <label>CVV<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditCVV[]" maxlength="4" value="${cvv}" />
+                                <label>Cód. Segurança<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="EditCodSeguranca[]" maxlength="4" value="${codSeguranca || ''}" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group mb-2">
+                                <label>Bandeira<span class="text-danger">*</span></label>
+                                <select class="form-control" name="EditBandeira[]"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="EditPreferencial[]" ${preferencial ? 'checked' : ''} />
+                                <label class="form-check-label">Preferencial</label>
                             </div>
                         </div>
                         <div class="col-md-1 d-flex align-items-end">
-                            <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartaoEdicao('edit-cartao-item-${idx}', ${idx})" title="Remover Cartão">
+                            <button type="button" class="btn btn-link text-danger p-0" onclick="removerCartaoEdicao('edit-cartao-item-${idx}')" title="Remover Cartão">
                                 <img src="/images/icon-trash.png" alt="Remover" width="22" height="22" />
                             </button>
                         </div>
@@ -171,7 +164,20 @@ function adicionarCartaoEdicao(numero = '', nomeCartao = '', bandeira = '', cvv 
             </div>
         </div>`;
     document.querySelector("#edit-accordionCartoes").insertAdjacentHTML('beforeend', html);
-    atualizarIconesCartaoPrincipalEdicao();
+
+    // Preencher o select de bandeira via AJAX
+    $.get('/Home/ListarBandeirasCartao', function (bandeiras) {
+        let $select = $(`#edit-cartao-item-${idx} select[name="EditBandeira[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        bandeiras.forEach(function (b) {
+            let selected = (b.nome === bandeira || b.id == bandeira) ? 'selected' : '';
+            $select.append(`<option value="${b.nome}" ${selected}>${b.nome}</option>`);
+        });
+    });
+
+    // Máscara para número do cartão
+    $(`#edit-cartao-item-${idx} input[name="EditNumeroCartao[]"]`).mask('0000 0000 0000 0000');
+    $(`#edit-cartao-item-${idx} input[name="EditCodSeguranca[]"]`).mask('0000');
 }
 
 // Remove um cartão do modal de edição
