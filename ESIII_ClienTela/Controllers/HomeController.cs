@@ -228,5 +228,21 @@ namespace ESIII_ClienTela.Controllers
             }
             return Ok();
         }
+
+        [HttpPut]
+        public IActionResult AlterarStatus(int id, [FromBody] StatusDto dto)
+        {
+            var cliente = CliDao.ObterPorId(id);
+            if (cliente == null) return NotFound();
+
+            cliente.Status = dto.Status;
+            CliDao.Atualizar(cliente);
+            return Ok();
+        }
+
+        public class StatusDto
+        {
+            public bool Status { get; set; }
+        }
     }
 }

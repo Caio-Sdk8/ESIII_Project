@@ -88,10 +88,7 @@
                 </td>
                 <td>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" @(cliente.Status ? 1 : 0)/>
-                            <!-- @* onchange="await _clienteService.AlterarStatus(cliente.Id, this.checked)" *@ -->
-                       
-                        <!-- @* Backend: PUT /clientes/{id}/status *@ -->
+                        <input class="form-check-input status-switch" type="checkbox" @(cliente.Status ? "checked" : "") data-id="@cliente.Id"/>
                     </div>
                 </td>
                 <td>

@@ -449,5 +449,29 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    document.querySelectorAll('.status-switch').forEach(function(switchEl) {
+        switchEl.addEventListener('change', function() {
+            const id = this.getAttribute('data-id');
+            const novoStatus = this.checked;
+
+            fetch(`/Home/AlterarStatus/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: novoStatus })
+            })
+            .then(resp => {
+                if (!resp.ok) {
+                    mostrarModalErro('Erro ao alterar status.');
+                    // Reverte o switch visualmente se falhar
+                    this.checked = !novoStatus;
+                }
+            })
+            .catch(() => {
+                mostrarModalErro('Erro ao alterar status.');
+                this.checked = !novoStatus;
+            });
+        });
+    });
 });
 
