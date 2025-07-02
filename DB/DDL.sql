@@ -6,7 +6,7 @@ CREATE TABLE Cliente (
     nome VARCHAR(100) NOT NULL,
     genero VARCHAR(20),
     dataNascimento DATE,
-    cpf CHAR(11) NOT NULL UNIQUE,
+    cpf CHAR(14) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha char(60) NOT NULL,
     status BOOLEAN DEFAULT TRUE,

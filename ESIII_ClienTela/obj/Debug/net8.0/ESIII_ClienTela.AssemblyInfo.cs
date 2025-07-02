@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a3f9a00d63cc0f984c206f552c062a1baaae36a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c01b7916bc6054880298170d7f23763e84b7d8ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
