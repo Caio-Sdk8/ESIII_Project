@@ -61,7 +61,14 @@ namespace ESIII_ClienTela.Fachada
                 telefoneDAO.Atualizar(telefone);
             }
 
+            if (response.Mensagens == null)
+                response.Mensagens = new List<string>();
+
             response.Mensagens.Add("Ok");
+
+            if (response.Entidades == null)
+                response.Entidades = new List<EntidadeDominio>();
+
             response.Entidades.Add(entidade);
 
             return response;

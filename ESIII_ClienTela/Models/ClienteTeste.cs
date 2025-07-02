@@ -15,8 +15,8 @@ namespace ESIII_ClienTela.Models
         public required Boolean Status { get; set; }
         public int Ranking { get; set; }
 
-        //public List<TelefoneModel> Telefones { get; set; } = new();
-        //public List<EnderecoModel> Enderecos { get; set; } = new();
-        //public List<CartaoDeCreditoModel> Cartoes { get; set; } = new();
+        public List<TelefoneModel> Telefones { get; set; } = new();
+        public List<EnderecoModel> Enderecos { get; set; } = new();
+        public List<CartaoDeCreditoModel> Cartoes { get; set; } = new();
     }
 }

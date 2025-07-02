@@ -106,11 +106,11 @@ namespace ESIII_ClienTela.DAO
 
             string sql = @"
                 UPDATE Endereco SET 
-                    cliente_id = @cliente_id,
-                    cidade_id = @cidade_id,
-                    tipoLogradouro_id = @tipoLogradouro_id,
-                    tipoResidencia_id = @tipoResidencia_id,
-                    tipoEndereco_id = @tipoEndereco_id,
+                    clienteId = @cliente_id,
+                    cidadeId = @cidade_id,
+                    tipoLogradouroId = @tipoLogradouro_id,
+                    tipoResidenciaId = @tipoResidencia_id,
+                    tipoEnderecoId = @tipoEndereco_id,
                     apelido = @apelido,
                     logradouro = @logradouro,
                     numero = @numero,

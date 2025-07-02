@@ -5671,19 +5671,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\igorf\\.nuget\\packages\\": {}
+    "C:\\Users\\caioa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\ESIII_ClienTela.csproj",
+      "projectUniqueName": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\ESIII_ClienTela.csproj",
       "projectName": "ESIII_ClienTela",
-      "projectPath": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\ESIII_ClienTela.csproj",
-      "packagesPath": "C:\\Users\\igorf\\.nuget\\packages\\",
-      "outputPath": "D:\\FATEC\\Engenharia de Software III\\Projeto ESIII\\ESIII_Project\\ESIII_ClienTela\\obj\\",
+      "projectPath": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\ESIII_ClienTela.csproj",
+      "packagesPath": "C:\\Users\\caioa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\caioa\\Documents\\ESIII_Project\\ESIII_ClienTela\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\igorf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5708,7 +5713,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -5746,7 +5752,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

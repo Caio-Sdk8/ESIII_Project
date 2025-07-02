@@ -65,7 +65,7 @@ namespace ESIII_ClienTela.DAO
 
             string sql = @"
                 UPDATE CartaoDeCredito SET 
-                    cliente_id = @cliente_id,
+                    clienteId = @cliente_id,
                     numero = @numero,
                     nomeImpresso = @nomeImpresso,
                     codSeguranca = @codSeguranca,

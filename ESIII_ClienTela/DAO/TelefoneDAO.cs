@@ -78,7 +78,7 @@ namespace ESIII_ClienTela.DAO
             using var conn = MySqlConnectionDB.GetConnection();
             conn.Open();
 
-            string sql = "UPDATE Telefone SET cliente_id = @cliente_id, tipoTelefone_id = @tipoTelefone_id, ddd = @ddd, numero = @numero WHERE id = @id";
+            string sql = "UPDATE Telefone SET clienteId = @cliente_id, tipoTelefoneId = @tipoTelefone_id, ddd = @ddd, numero = @numero WHERE id = @id";
             using var cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@cliente_id", telefone.Cliente_id);

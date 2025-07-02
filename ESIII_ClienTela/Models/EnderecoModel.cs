@@ -2,7 +2,7 @@
 {
     public class EnderecoModel : EntidadeDominio
     {
-        public required int Cliente_id { get; set; }
+        public int Cliente_id { get; set; }
         public required int Cidade_id { get; set; }
         public required int TipoLogradouro_id { get; set; }
         public required int TipoResidencia_id { get; set; }

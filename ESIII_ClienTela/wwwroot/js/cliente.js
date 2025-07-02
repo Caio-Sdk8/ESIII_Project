@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         formEditar.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Monta o objeto ClienteModel conforme esperado pelo backend
             const dataObj = document.getElementById('EditNascimento').value;
             const dataFormatada = dataObj.length > 10 ? dataObj.substring(0, 10) : dataObj;
 
@@ -47,38 +46,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 Cpf: document.getElementById('EditCPF').value,
                 Email: document.getElementById('EditEmail').value,
                 Senha: document.getElementById('EditSenha').value,
-                Status: true, // ou false, conforme sua lógica
-                Ranking: 0,   // ou outro valor conforme sua lógica
+                Status: true,
+                Ranking: 0,
                 Telefones: [],
                 Enderecos: [],
                 Cartoes: []
             };
 
-            // Telefones
             document.querySelectorAll('#edit-accordionTelefones .accordion-item').forEach(function (item) {
                 cliente.Telefones.push({
-                    TipoTelefone_id: parseInt(item.querySelector('select[name="EditTipoTelefone[]"]').value, 10),
+                    TipoTelefone_id: Number(item.querySelector('select[name="EditTipoTelefone[]"]').value),
                     Ddd: item.querySelector('input[name="EditDDD[]"]').value,
-                    Numero: item.querySelector('input[name="EditPhone[]"]').value                    
+                    Numero: item.querySelector('input[name="EditPhone[]"]').value
                 });
             });
 
-            // Endereços
             document.querySelectorAll('#edit-accordionEnderecos .accordion-item').forEach(function (item) {
                 cliente.Enderecos.push({
-                    TipoEndereco_id: item.querySelector('select[name="EditTipoEndereco[]"]').value,
-                    TipoResidencia_id: item.querySelector('select[name="EditTipoResidencia[]"]').value,
-                    TipoLogradouro_id: item.querySelector('select[name="EditTipoLogradouro[]"]').value,
+                    TipoEndereco_id: Number(item.querySelector('select[name="EditTipoEndereco[]"]').value),
+                    TipoResidencia_id: Number(item.querySelector('select[name="EditTipoResidencia[]"]').value),
+                    TipoLogradouro_id: Number(item.querySelector('select[name="EditTipoLogradouro[]"]').value),
                     Logradouro: item.querySelector('input[name="EditLogradouro[]"]').value,
                     Numero: item.querySelector('input[name="EditNumero[]"]').value,
                     Bairro: item.querySelector('input[name="EditBairro[]"]').value,
                     Cep: item.querySelector('input[name="EditCEP[]"]').value,
                     Cidade_id: item.querySelector('select[name="EditCidade[]"]').value,
-                    Obs: item.querySelector('textarea[name="EditObservacoes[]"]').value
+                    Obs: item.querySelector('textarea[name="EditObservacoes[]"]').value,
+                    Apelido: cliente.Nome + " Endereco" 
                 });
             });
 
-            // Cartões
             document.querySelectorAll('#edit-accordionCartoes .accordion-item').forEach(function (item) {
                 cliente.Cartoes.push({
                     Numero: item.querySelector('input[name="EditNumeroCartao[]"]').value,
@@ -88,28 +85,37 @@ document.addEventListener('DOMContentLoaded', function () {
                     Preferencial: item.querySelector('input[name="EditPreferencial[]"]').value === 'true'
                 });
             });
-            
+
             console.log(JSON.stringify(cliente, null, 2));
-            $.ajax({
-                url: '/Home/Teste',
-                type: 'POST',
-                data: JSON.stringify(cliente),
-                contentType: 'application/json',
-                success: function (resp) {
-                    if (typeof mostrarModalSucesso === 'function') mostrarModalSucesso();
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
-                    if (modal) modal.hide();
+
+            fetch('/Home/Alterar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                error: function (xhr) {
-                    if (xhr.responseJSON && xhr.responseJSON.Mensagens) {
-                        mostrarModalErro(xhr.responseJSON.Mensagens.join('<br>'));
+                body: JSON.stringify(cliente)
+            })
+                .then(async response => {
+                    if (response.ok) {
+                        if (typeof mostrarModalSucesso === 'function') mostrarModalSucesso();
+                        const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
+                        if (modal) modal.hide();
                     } else {
-                        mostrarModalErro('Erro ao salvar alterações.');
+                        const data = await response.json();
+                        if (data?.Mensagens) {
+                            mostrarModalErro(data.Mensagens.join('<br>'));
+                        } else {
+                            mostrarModalErro('Erro ao salvar alterações.');
+                        }
                     }
-                }
-            });
+                })
+                .catch(error => {
+                    console.error('Erro na requisição:', error);
+                    mostrarModalErro('Erro ao salvar alterações.');
+                });
         });
     }
+
 
     // Sucesso ao cadastrar cliente + validação completa
     const formCadastro = document.querySelector('#modalCadastro form');
