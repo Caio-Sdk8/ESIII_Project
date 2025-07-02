@@ -119,3 +119,29 @@ C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_Cl
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
 C:\Users\caioa\Documents\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\DotNetEnv.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Google.Protobuf.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\MySql.Data.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Sprache.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Text.Json.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\ZstdSharp.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.csproj.AssemblyReference.cache
+D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_Cl.E2A00CEF.Up2Date

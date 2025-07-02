@@ -30,7 +30,7 @@ function adicionarTelefone() {
                     <div class="col-md-2">
                         <div class="form-group mb-2">
                             <label>DDD<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="DDD[]" maxlength="4" />
+                            <input type="text" class="form-control" name="DDD[]" maxlength="2" />
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -50,7 +50,7 @@ function adicionarTelefone() {
     </div>`;
     document.querySelector("#accordionTelefones").insertAdjacentHTML('beforeend', html);
     $('input[name="Phone[]"]').mask('00000-0000');
-    $('input[name="DDD[]"]').mask('(00)');
+    $('input[name="DDD[]"]').mask('00');
 }
 
 // Remove um telefone da lista dinâmica (cadastro ou edição)
@@ -63,11 +63,7 @@ function removerTelefone(id) {
 }
 
 // Adiciona um telefone na lista dinâmica do modal de edição
-function adicionarTelefoneEdicao(tipo = '', ddd = '', numero = '') {
-    // // Backend: Se desejar salvar telefone de edição imediatamente, faça uma chamada AJAX aqui
-    // // $.post('/api/telefones', { tipo, ddd, numero, ... }).done(function(resp) { ... });
-
-    // Garante um índice único para cada telefone de edição
+function adicionarTelefoneEdicao(tipoId = '', ddd = '', numero = '') {
     if (typeof adicionarTelefoneEdicao.count === 'undefined') {
         adicionarTelefoneEdicao.count = 0;
     }
@@ -85,24 +81,19 @@ function adicionarTelefoneEdicao(tipo = '', ddd = '', numero = '') {
                         <div class="col-md-4">
                             <div class="form-group mb-2">
                                 <label>Tipo de Telefone<span class="text-danger">*</span></label>
-                                <select class="form-control" name="EditTipoTelefone[]">
-                                    <option value="">Selecione</option>
-                                    <option value="Celular" ${tipo === 'Celular' ? 'selected' : ''}>Celular</option>
-                                    <option value="Residencial" ${tipo === 'Residencial' ? 'selected' : ''}>Residencial</option>
-                                    <option value="Comercial" ${tipo === 'Comercial' ? 'selected' : ''}>Comercial</option>
-                                </select>
+                                <select class="form-control" name="EditTipoTelefone[]"></select>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group mb-2">
                                 <label>DDD<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditDDD[]" maxlength="4" value="${ddd}" />
+                                <input type="text" class="form-control" name="EditDDD[]" maxlength="2" value="${ddd || ''}" />
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group mb-2">
                                 <label>Número do Telefone<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="EditPhone[]" value="${numero}" />
+                                <input type="text" class="form-control" name="EditPhone[]" value="${numero || ''}" />
                             </div>
                         </div>
                         <div class="col-md-1 d-flex align-items-end">
@@ -114,8 +105,19 @@ function adicionarTelefoneEdicao(tipo = '', ddd = '', numero = '') {
                 </div>
             </div>
         </div>`;
-        
     document.querySelector("#edit-accordionTelefones").insertAdjacentHTML('beforeend', html);
-    $('input[name="EditPhone[]"]').mask('00000-0000');
-    $('input[name="EditDDD[]"]').mask('(00)');
+
+    // Preencher o select dinamicamente
+    $.get('/Home/ListarTiposTelefone', function (tipos) {
+        let $select = $(`#edit-telefone-item-${idx} select[name="EditTipoTelefone[]"]`);
+        $select.append('<option value="">Selecione</option>');
+        tipos.forEach(function (tipo) {
+            let selected = tipo.id == tipoId ? 'selected' : '';
+            $select.append(`<option value="${tipo.id}" ${selected}>${tipo.tipo}</option>`);
+        });
+    });
+
+    // Máscaras corretas
+    $(`#edit-telefone-item-${idx} input[name="EditPhone[]"]`).mask('00000-0000');
+    $(`#edit-telefone-item-${idx} input[name="EditDDD[]"]`).mask('00');
 }

@@ -153,39 +153,73 @@ document.addEventListener('DOMContentLoaded', function () {
     if (modalEditar) {
         modalEditar.addEventListener('show.bs.modal', function (event) {
             var button = event.relatedTarget;
-            var nome = button.getAttribute('data-nome');
-            var email = button.getAttribute('data-email');
-            var telefone = button.getAttribute('data-telefone');
-            var status = button.getAttribute('data-status');
+            var id = button.getAttribute('data-id');
 
-            // // Backend: Chamada para buscar dados do cliente pelo id
-            // // $.get('/clientes/' + id, function(data) { ...preencher campos... });
-
-            // Preencher campos do modal
-            if (modalEditar.querySelector('#EditName')) modalEditar.querySelector('#EditName').value = nome;
-            if (modalEditar.querySelector('#EditEmail')) modalEditar.querySelector('#EditEmail').value = email;
-            if (modalEditar.querySelector('#EditTelefone')) modalEditar.querySelector('#EditTelefone').value = telefone;
-            if (modalEditar.querySelector('#EditStatus')) modalEditar.querySelector('#EditStatus').checked = status === '1';
-
-            // Limpar telefones e endereços existentes
+            // Limpar telefones existentes
             var accordionTelefones = modalEditar.querySelector("#edit-accordionTelefones");
-            var accordionEnderecos = modalEditar.querySelector("#edit-accordionEnderecos");
             if (accordionTelefones) accordionTelefones.innerHTML = '';
+
+            // Limpar listas e resetar contadores
+            if (typeof adicionarTelefoneEdicao !== 'undefined') adicionarTelefoneEdicao.count = 0;
+            if (typeof adicionarEnderecoEdicao !== 'undefined') adicionarEnderecoEdicao.count = 0;
+            if (typeof adicionarCartaoEdicao !== 'undefined') adicionarCartaoEdicao.count = 0;
+
+            var accordionEnderecos = modalEditar.querySelector("#edit-accordionEnderecos");
             if (accordionEnderecos) accordionEnderecos.innerHTML = '';
+            var accordionCartoes = modalEditar.querySelector("#edit-accordionCartoes");
+            if (accordionCartoes) accordionCartoes.innerHTML = '';
 
-            // // Backend: Preencher telefones e endereços do cliente buscados
-            // // Exemplo: data.telefones.forEach(t => adicionarTelefoneEdicao(t.tipo, t.ddd, t.numero));
-            // // Exemplo: data.enderecos.forEach(e => adicionarEnderecoEdicao(e.tipo, ...));
+            // Buscar dados do cliente via AJAX
+            $.get('/Home/ObterCliente', { id: id }, function (data) {
+                // Preencher campos principais se desejar
+                if (modalEditar.querySelector('#EditName')) modalEditar.querySelector('#EditName').value = data.nome;
+                if (modalEditar.querySelector('#EditEmail')) modalEditar.querySelector('#EditEmail').value = data.email;
 
-            // Adicionar telefones e endereços do cliente (simulação)
-            if (typeof adicionarTelefoneEdicao === 'function') {
-                adicionarTelefoneEdicao();
-                adicionarTelefoneEdicao();
-            }
-            if (typeof adicionarEnderecoEdicao === 'function') {
-                adicionarEnderecoEdicao();
-                adicionarEnderecoEdicao();
-            }
+                // Preencher telefones
+                if (data.telefones && Array.isArray(data.telefones)) {
+                    data.telefones.forEach(function (tel) {
+                        if (typeof adicionarTelefoneEdicao === 'function') {
+                            adicionarTelefoneEdicao(tel.tipoTelefone_id || tel.tipoTelefoneId, tel.ddd, tel.numero);
+                        }
+                    });
+                }
+
+                // Preencher endereços
+                if (data.enderecos && Array.isArray(data.enderecos)) {
+                    data.enderecos.forEach(function (end) {
+                        if (typeof adicionarEnderecoEdicao === 'function') {
+                            adicionarEnderecoEdicao(
+                                end.tipoEndereco_id || end.tipoEnderecoId,
+                                end.tipoResidencia_id || end.tipoResidenciaId,
+                                end.tipoLogradouro_id || end.tipoLogradouroId,
+                                end.logradouro,
+                                end.numero,
+                                end.bairro,
+                                end.cep,
+                                end.cidade_id || end.cidadeId,
+                                end.estado,
+                                end.pais,
+                                end.obs
+                            );
+                        }
+                    });
+                }
+
+                // Preencher cartões
+                if (data.cartoes && Array.isArray(data.cartoes)) {
+                    data.cartoes.forEach(function (cartao) {
+                        if (typeof adicionarCartaoEdicao === 'function') {
+                            adicionarCartaoEdicao(
+                                cartao.numero,
+                                cartao.nomeImpresso,
+                                cartao.codSeguranca,
+                                cartao.band,
+                                cartao.preferencial
+                            );
+                        }
+                    });
+                }
+            });
         });
     }
 
