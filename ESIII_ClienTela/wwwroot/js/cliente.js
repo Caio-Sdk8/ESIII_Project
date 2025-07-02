@@ -36,22 +36,78 @@ document.addEventListener('DOMContentLoaded', function () {
         formEditar.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            var formData = $(formEditar).serialize();
+            // Monta o objeto ClienteModel conforme esperado pelo backend
+            const dataObj = document.getElementById('EditNascimento').value;
+            const dataFormatada = dataObj.length > 10 ? dataObj.substring(0, 10) : dataObj;
 
-            $.post('/Home/Alterar', formData)
-                .done(function (resp) {
+            const cliente = {
+                Nome: document.getElementById('EditName').value,
+                Genero: document.getElementById('EditGenero').value,
+                DataNascimento: dataFormatada,
+                Cpf: document.getElementById('EditCPF').value,
+                Email: document.getElementById('EditEmail').value,
+                Senha: document.getElementById('EditSenha').value,
+                Status: true, // ou false, conforme sua lógica
+                Ranking: 0,   // ou outro valor conforme sua lógica
+                Telefones: [],
+                Enderecos: [],
+                Cartoes: []
+            };
+
+            // Telefones
+            document.querySelectorAll('#edit-accordionTelefones .accordion-item').forEach(function (item) {
+                cliente.Telefones.push({
+                    TipoTelefone_id: parseInt(item.querySelector('select[name="EditTipoTelefone[]"]').value, 10),
+                    Ddd: item.querySelector('input[name="EditDDD[]"]').value,
+                    Numero: item.querySelector('input[name="EditPhone[]"]').value                    
+                });
+            });
+
+            // Endereços
+            document.querySelectorAll('#edit-accordionEnderecos .accordion-item').forEach(function (item) {
+                cliente.Enderecos.push({
+                    TipoEndereco_id: item.querySelector('select[name="EditTipoEndereco[]"]').value,
+                    TipoResidencia_id: item.querySelector('select[name="EditTipoResidencia[]"]').value,
+                    TipoLogradouro_id: item.querySelector('select[name="EditTipoLogradouro[]"]').value,
+                    Logradouro: item.querySelector('input[name="EditLogradouro[]"]').value,
+                    Numero: item.querySelector('input[name="EditNumero[]"]').value,
+                    Bairro: item.querySelector('input[name="EditBairro[]"]').value,
+                    Cep: item.querySelector('input[name="EditCEP[]"]').value,
+                    Cidade_id: item.querySelector('select[name="EditCidade[]"]').value,
+                    Obs: item.querySelector('textarea[name="EditObservacoes[]"]').value
+                });
+            });
+
+            // Cartões
+            document.querySelectorAll('#edit-accordionCartoes .accordion-item').forEach(function (item) {
+                cliente.Cartoes.push({
+                    Numero: item.querySelector('input[name="EditNumeroCartao[]"]').value,
+                    NomeImpresso: item.querySelector('input[name="EditNomeImpresso[]"]').value,
+                    CodSeguranca: item.querySelector('input[name="EditCodSeguranca[]"]').value,
+                    Band: item.querySelector('select[name="EditBandeira[]"]').value,
+                    Preferencial: item.querySelector('input[name="EditPreferencial[]"]').value === 'true'
+                });
+            });
+            
+            console.log(JSON.stringify(cliente, null, 2));
+            $.ajax({
+                url: '/Home/Teste',
+                type: 'POST',
+                data: JSON.stringify(cliente),
+                contentType: 'application/json',
+                success: function (resp) {
                     if (typeof mostrarModalSucesso === 'function') mostrarModalSucesso();
                     const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
                     if (modal) modal.hide();
-                    // Opcional: atualizar a lista na tela
-                })
-                .fail(function (xhr) {
+                },
+                error: function (xhr) {
                     if (xhr.responseJSON && xhr.responseJSON.Mensagens) {
                         mostrarModalErro(xhr.responseJSON.Mensagens.join('<br>'));
                     } else {
                         mostrarModalErro('Erro ao salvar alterações.');
                     }
-                });
+                }
+            });
         });
     }
 

@@ -145,4 +145,3 @@ D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\
 D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.pdb
 D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ESIII_ClienTela.genruntimeconfig.cache
 D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\obj\Debug\net8.0\ref\ESIII_ClienTela.dll
-D:\FATEC\Engenharia de Software III\Projeto ESIII\ESIII_Project\ESIII_ClienTela\bin\Debug\net8.0\Newtonsoft.Json.dll

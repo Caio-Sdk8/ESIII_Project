@@ -50,7 +50,7 @@ namespace ESIII_ClienTela.DAO
                         Id = reader.GetInt32("clienteId"),
                         Nome = reader.GetString("nome"),
                         Genero = reader.GetString("genero"),
-                        DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
+                        DataNascimento = reader.GetDateTime("dataNascimento"),
                         Cpf = reader.GetString("cpf"),
                         Email = reader.GetString("email"),
                         Senha = reader.GetString("senha"),
@@ -163,7 +163,7 @@ namespace ESIII_ClienTela.DAO
                         Id = clienteId,
                         Nome = reader.GetString("nome"),
                         Genero = reader.GetString("genero"),
-                        DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
+                        DataNascimento = reader.GetDateTime("dataNascimento"),
                         Cpf = reader.GetString("cpf"),
                         Email = reader.GetString("email"),
                         Senha = reader.GetString("senha"),
@@ -241,7 +241,7 @@ namespace ESIII_ClienTela.DAO
 
             cmd.Parameters.AddWithValue("@nome", cliente.Nome);
             cmd.Parameters.AddWithValue("@genero", cliente.Genero);
-            cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento.ToDateTime(new TimeOnly(0, 0)));
+            cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
             cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
             cmd.Parameters.AddWithValue("@email", cliente.Email);
             cmd.Parameters.AddWithValue("@senha", cliente.Senha);
@@ -271,7 +271,7 @@ namespace ESIII_ClienTela.DAO
 
             cmd.Parameters.AddWithValue("@nome", cliente.Nome);
             cmd.Parameters.AddWithValue("@genero", cliente.Genero);
-            cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento.ToDateTime(new TimeOnly(0, 0)));
+            cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
             cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
             cmd.Parameters.AddWithValue("@email", cliente.Email);
             cmd.Parameters.AddWithValue("@senha", cliente.Senha);
@@ -346,7 +346,7 @@ namespace ESIII_ClienTela.DAO
                         Id = clienteId,
                         Nome = reader.GetString("nome"),
                         Genero = reader.GetString("genero"),
-                        DataNascimento = DateOnly.FromDateTime(reader.GetDateTime("dataNascimento")),
+                        DataNascimento = reader.GetDateTime("dataNascimento"),
                         Cpf = reader.GetString("cpf"),
                         Email = reader.GetString("email"),
                         Senha = reader.GetString("senha"),
