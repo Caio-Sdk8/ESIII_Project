@@ -63,7 +63,7 @@ function removerTelefone(id) {
 }
 
 // Adiciona um telefone na lista dinâmica do modal de edição
-function adicionarTelefoneEdicao(tipoId = '', ddd = '', numero = '') {
+function adicionarTelefoneEdicao(tipoId = '', ddd = '', numero = '', id = 0) {
     if (typeof adicionarTelefoneEdicao.count === 'undefined') {
         adicionarTelefoneEdicao.count = 0;
     }
@@ -77,6 +77,7 @@ function adicionarTelefoneEdicao(tipoId = '', ddd = '', numero = '') {
             </h2>
             <div id="edit-collapseTelefone${idx}" class="accordion-collapse collapse show" aria-labelledby="edit-headingTelefone${idx}" data-bs-parent="#edit-accordionTelefones">
                 <div class="accordion-body">
+                    <input type="hidden" name="EditTelefoneId[]" value="${id || ''}" />
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-2">
@@ -112,7 +113,7 @@ function adicionarTelefoneEdicao(tipoId = '', ddd = '', numero = '') {
         let $select = $(`#edit-telefone-item-${idx} select[name="EditTipoTelefone[]"]`);
         $select.append('<option value="">Selecione</option>');
         tipos.forEach(function (tipo) {
-            let selected = tipo.id == tipoId ? 'selected' : '';
+            let selected = String(tipo.id) === String(tipoId) ? 'selected' : '';
             $select.append(`<option value="${tipo.id}" ${selected}>${tipo.tipo}</option>`);
         });
     });

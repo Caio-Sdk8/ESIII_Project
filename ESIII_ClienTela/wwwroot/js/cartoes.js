@@ -109,7 +109,7 @@ function atualizarIconesCartaoPrincipal() {
 }
 
 // Adiciona um cartão na lista dinâmica do modal de edição
-function adicionarCartaoEdicao(numero = '', nomeImpresso = '', codSeguranca = '', bandeira = '', preferencial = false) {
+function adicionarCartaoEdicao(numero = '', nomeImpresso = '', codSeguranca = '', bandeira = '', preferencial = false, id = 0) {
     if (typeof adicionarCartaoEdicao.count === 'undefined') {
         adicionarCartaoEdicao.count = 0;
     }
@@ -129,6 +129,7 @@ function adicionarCartaoEdicao(numero = '', nomeImpresso = '', codSeguranca = ''
     </h2>
     <div id="edit-collapseCartao${idx}" class="accordion-collapse collapse show" aria-labelledby="edit-headingCartao${idx}" data-bs-parent="#edit-accordionCartoes">
         <div class="accordion-body">
+            <input type="hidden" name="EditCartaoId[]" value="${id || ''}" />
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group mb-2">

@@ -77,7 +77,7 @@ CREATE TABLE Telefone (
     id INT AUTO_INCREMENT PRIMARY KEY,
     clienteId INT NOT NULL,
     ddd CHAR(2) NOT NULL,
-    numero VARCHAR(9) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
     tipoTelefoneId INT,
     FOREIGN KEY (clienteId) REFERENCES Cliente(id) ON DELETE CASCADE,
     FOREIGN KEY (tipoTelefoneId) REFERENCES TipoTelefone(id) ON DELETE SET NULL
@@ -94,7 +94,7 @@ CREATE TABLE Transacao (
 CREATE TABLE CartaoDeCredito (
     id INT AUTO_INCREMENT PRIMARY KEY,
     clienteId INT NOT NULL,
-    numero VARCHAR(16) NOT NULL,
+    numero VARCHAR(19) NOT NULL,
     nomeImpresso VARCHAR(100) NOT NULL,
     codSeguranca CHAR(3) NOT NULL,
     band VARCHAR(16) NOT NULL,

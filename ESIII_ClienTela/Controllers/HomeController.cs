@@ -180,45 +180,6 @@ namespace ESIII_ClienTela.Controllers
         }
 
         [HttpPost]
-        public IActionResult Teste([FromBody] ClienteTeste cliente)
-        {
-            Console.WriteLine(cliente == null ? "Cliente NULL" : "Cliente OK");
-            Console.WriteLine(cliente?.Nome);
-            Console.WriteLine(cliente?.Genero);
-            Console.WriteLine(cliente?.DataNascimento);
-            Console.WriteLine(cliente?.Cpf);
-            Console.WriteLine(cliente?.Email);
-            Console.WriteLine(cliente?.Senha);
-            Console.WriteLine(cliente?.Status);
-            Console.WriteLine(cliente?.Ranking);
-            /*if (cliente?.Telefones != null)
-            {
-                for (int i = 0; i < cliente.Telefones.Count; i++)
-                {
-                    Console.WriteLine($"Telefone[{i}]: {System.Text.Json.JsonSerializer.Serialize(cliente.Telefones[i])}");
-                }
-            }*/
-
-            /*if (cliente?.Enderecos != null)
-            {
-                for (int i = 0; i < cliente.Enderecos.Count; i++)
-                {
-                    Console.WriteLine($"Endereco[{i}]: {System.Text.Json.JsonSerializer.Serialize(cliente.Enderecos[i])}");
-                }
-            }*/
-
-            /*if (cliente?.Cartoes != null)
-            {
-                for (int i = 0; i < cliente.Cartoes.Count; i++)
-                {
-                    Console.WriteLine($"Cartao[{i}]: {System.Text.Json.JsonSerializer.Serialize(cliente.Cartoes[i])}");
-                }
-            }*/
-
-            return Ok();
-        }
-
-        [HttpPost]
         public IActionResult AtualizarEnderecos([FromBody] List<EnderecoModel> enderecos)
         {
             foreach (var endereco in enderecos)
