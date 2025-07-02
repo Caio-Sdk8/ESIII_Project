@@ -156,5 +156,31 @@ namespace ESIII_ClienTela.Controllers
                 .ToList();
             return Json(bandeiras);
         }
+
+        [HttpPost]
+        public IActionResult Alterar(ClienteModel cliente)
+        {
+            // Log para teste: exibe todos os dados recebidos
+            System.Diagnostics.Debug.WriteLine("==== DADOS RECEBIDOS NO ALTERAR ====");
+            System.Diagnostics.Debug.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(cliente, Newtonsoft.Json.Formatting.Indented));
+            System.Diagnostics.Debug.WriteLine("====================================");
+            var response = fachada.alterar(cliente);
+
+            if (response.Mensagens.Any(m => m != "Ok"))
+            {
+                return BadRequest(new
+                {
+                    Sucesso = false,
+                    Mensagens = response.Mensagens
+                });
+            }
+
+            return Ok(new
+            {
+                Sucesso = true,
+                Mensagens = response.Mensagens,
+                Entidade = response.Entidades.FirstOrDefault()
+            });
+        }
     }
 }

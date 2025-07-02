@@ -35,14 +35,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (formEditar) {
         formEditar.addEventListener('submit', function (e) {
             e.preventDefault();
-            // // Backend: Chamada para atualizar cliente
-            // // $.ajax({ url: '/clientes/' + id, type: 'PUT', data: { ...dados... } }).done(function(resp) { ... });
-            if (typeof mostrarModalSucessoEdicao === 'function') {
-                mostrarModalSucessoEdicao();
-            }
-            // Fechar o modal após salvar
-            const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
-            if (modal) modal.hide();
+
+            var formData = $(formEditar).serialize();
+
+            $.post('/Home/Alterar', formData)
+                .done(function (resp) {
+                    if (typeof mostrarModalSucesso === 'function') mostrarModalSucesso();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarCliente'));
+                    if (modal) modal.hide();
+                    // Opcional: atualizar a lista na tela
+                })
+                .fail(function (xhr) {
+                    if (xhr.responseJSON && xhr.responseJSON.Mensagens) {
+                        mostrarModalErro(xhr.responseJSON.Mensagens.join('<br>'));
+                    } else {
+                        mostrarModalErro('Erro ao salvar alterações.');
+                    }
+                });
         });
     }
 

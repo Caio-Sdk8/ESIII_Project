@@ -45,7 +45,7 @@ namespace ESIII_ClienTela.DAO
                 {
                     Id = reader.GetInt32("id"),
                     Nome = reader.GetString("nome"),
-                    Estado_id = reader.GetInt32("estado_id")
+                    Estado_id = reader.GetInt32("estadoId")
                 });
             }
 

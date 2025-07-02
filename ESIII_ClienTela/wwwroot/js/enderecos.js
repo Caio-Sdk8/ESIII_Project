@@ -159,7 +159,8 @@ function abrirEscolhaTipoEnderecoEdicao() {
 
 // Adiciona um endereço na lista dinâmica do modal de edição
 function adicionarEnderecoEdicao(
-    tipoEnderecoId = '', tipoResidenciaId = '', tipoLogradouroId = '', logradouro = '', numero = '', bairro = '', cep = '', cidadeId = '', estado = '', pais = '', obs = ''
+    tipoEnderecoId = '', tipoResidenciaId = '', tipoLogradouroId = '',
+    logradouro = '', numero = '', bairro = '', cep = '', cidadeId = '', estado = '', pais = '', obs = ''
 ) {
     if (typeof adicionarEnderecoEdicao.count === 'undefined') {
         adicionarEnderecoEdicao.count = 0;
