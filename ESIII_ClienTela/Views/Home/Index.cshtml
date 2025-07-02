@@ -594,35 +594,31 @@
 <div class="modal fade" id="modalEditarSenha" tabindex="-1" aria-labelledby="modalEditarSenhaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="formEditarSenha" method="post" asp-action="AlterarSenha" asp-controller="Home">
+            <form id="formEditarSenha" method="post" action="@Url.Action("AlterarSenha", "Home")">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalEditarSenhaLabel">Alterar Senha</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
+
                 <div class="modal-body">
-                    <input type="hidden" id="SenhaClienteId" name="SenhaClienteId" />
+                    <input type="hidden" id="SenhaClienteId" name="id"/>
+
                     <div class="mb-3">
                         <label for="NovaSenha" class="form-label">Nova Senha</label>
-                        <input type="password" class="form-control" id="NovaSenha" name="NovaSenha" required />
+                        <input type="password" class="form-control" id="NovaSenha" name="senha" required />
                     </div>
+
                     <div class="mb-3">
                         <label for="ConfirmarNovaSenha" class="form-label">Confirmar Nova Senha</label>
                         <input type="password" class="form-control" id="ConfirmarNovaSenha" name="ConfirmarNovaSenha" required />
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Salvar Nova Senha</button>
                 </div>
             </form>
-            <script>
-                var modalSenha = document.getElementById('modalEditarSenha');
-                modalSenha.addEventListener('show.bs.modal', function (event) {
-                  var button = event.relatedTarget;
-                  var clienteId = button.getAttribute('data-id');
-                  document.getElementById('SenhaClienteId').value = clienteId;
-                });
-            </script>
         </div>
     </div>
 </div>

@@ -81,6 +81,20 @@ namespace ESIII_ClienTela.Controllers
             return View();
         }
 
+        [HttpDelete]
+        public ActionResult deletarCliente(int id)
+        {
+            var resultado = fachada.excluir(id);
+
+
+            if (resultado == "OK")
+                return RedirectToAction("Index");
+
+            ModelState.AddModelError("", resultado);
+
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

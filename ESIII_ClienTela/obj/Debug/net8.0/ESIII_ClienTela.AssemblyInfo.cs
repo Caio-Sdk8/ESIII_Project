@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10d2d2ea81ebc4c48fce69a75cff409d082934d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6152c67f9142b13ce9ac105c28e26705ee1d3f9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ESIII_ClienTela")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

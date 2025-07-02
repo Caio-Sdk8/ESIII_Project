@@ -7,7 +7,7 @@ namespace ESIII_ClienTela.Fachada
     {
         ResponseDTO salvar(T entidade);
         ResponseDTO alterar(T entidade);
-        string excluir(T entidade);
+        string excluir(int id);
         List<T> consultar(T entidade);
 
     }

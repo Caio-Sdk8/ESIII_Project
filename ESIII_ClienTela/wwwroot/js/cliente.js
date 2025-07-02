@@ -6,17 +6,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Exclusão de cliente com confirmação
     document.querySelectorAll('button[title="Excluir"]').forEach(btn => {
         btn.addEventListener('click', function () {
+            const idCliente = btn.getAttribute('data-id');
             const tr = btn.closest('tr');
             if (!tr) return;
-            if (typeof mostrarModalConfirmacaoExclusao === 'function') {
-                mostrarModalConfirmacaoExclusao(() => {
-                    tr.remove();
-                    // // Backend: Chamada para excluir cliente
-                    // // $.ajax({ url: '/clientes/' + id, type: 'DELETE' }).done(function(resp) { ... });
-                });
-            }
+
+            mostrarModalConfirmacaoExclusao(() => {
+                fetch(`/Home/deletarCliente/${idCliente}`, {
+                    method: 'DELETE'
+                })
+                    .then(resp => {
+                        if (resp.ok) {
+                            tr.remove();
+                            mostrarModalSucesso(); // opcional
+                        } else {
+                            mostrarModalErro("Erro ao excluir cliente.");
+                        }
+                    })
+                    .catch(() => {
+                        mostrarModalErro("Erro ao tentar excluir cliente.");
+                    });
+            });
         });
     });
+
 
     // Sucesso ao editar cliente
     const formEditar = document.querySelector('#modalEditarCliente form');
@@ -233,46 +245,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const id = btn.getAttribute('data-id');
             document.getElementById('SenhaClienteId').value = id;
             // Limpa campos ao abrir
-            document.getElementById('SenhaAtual').value = '';
             document.getElementById('NovaSenha').value = '';
             document.getElementById('ConfirmarNovaSenha').value = '';
         });
     });
 
     // Validação e submissão do formulário de senha
-    const formEditarSenha = document.getElementById('formEditarSenha');
-    if (formEditarSenha) {
-        formEditarSenha.addEventListener('submit', function (e) {
+    formEditarSenha.addEventListener('submit', function (e) {
+        const novaSenha = document.getElementById('NovaSenha').value;
+        const confirmarNovaSenha = document.getElementById('ConfirmarNovaSenha').value;
+
+        const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/.test(novaSenha);
+        if (!senhaValida) {
             e.preventDefault();
-            const senhaAtual = document.getElementById('SenhaAtual').value;
-            const novaSenha = document.getElementById('NovaSenha').value;
-            const confirmarNovaSenha = document.getElementById('ConfirmarNovaSenha').value;
-
-            // Validação do padrão da nova senha
-            const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/.test(novaSenha);
-            if (!senhaValida) {
-                mostrarModalErro('A nova senha deve conter no mínimo 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.');
-                return;
-            }
-            if (novaSenha !== confirmarNovaSenha) {
-                mostrarModalErro('A nova senha e a confirmação devem ser iguais.');
-                return;
-            }
-
-            // Área para validar se a senha atual está correta (backend)
-            // Exemplo:
-            // $.post('/clientes/validar-senha', { id: ..., senhaAtual: senhaAtual })
-            //   .done(function(resp) { if (!resp.valida) { mostrarModalErro('Senha atual incorreta.'); return; } ... })
-
-            // Se passou, pode enviar para o backend para alterar a senha
-            // $.post('/clientes/alterar-senha', { id: ..., novaSenha: novaSenha })
-            //   .done(function(resp) { mostrarModalSucesso(); ... })
-
-            // Fecha o modal (simulação)
-            const modal = bootstrap.Modal.getInstance(document.getElementById('modalEditarSenha'));
-            if (modal) modal.hide();
-            mostrarModalSucesso();
-        });
-    }
+            mostrarModalErro('A nova senha deve conter no mínimo 8 caracteres, uma letra maiúscula, uma letra minúscula e um caractere especial.');
+            return;
+        }
+        if (novaSenha !== confirmarNovaSenha) {
+            e.preventDefault();
+            mostrarModalErro('A nova senha e a confirmação devem ser iguais.');
+            return;
+        }
+    });
 });
 
