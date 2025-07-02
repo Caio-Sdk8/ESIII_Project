@@ -72,11 +72,11 @@ namespace ESIII_ClienTela.Fachada
             return CliDao.ListarTodos();
         }
 
-        public string excluir(ClienteModel entidade)
+        public string excluir(int id)
         {
             try
             {
-                CliDao.Remover(entidade.Id);
+                CliDao.Remover(id);
             }
             catch (Exception ex)
             {

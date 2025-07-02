@@ -108,14 +108,13 @@ function mostrarModalErro(msg) {
 
 // Modal de confirmação de exclusão
 function mostrarModalConfirmacaoExclusao(onConfirm) {
-    // // Backend: Chamada para exclusão deve ser feita dentro do callback onConfirm
     removerModalExistente('modalConfirmarExclusao');
     const modalHtml = `
         <div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" aria-labelledby="modalConfirmarExclusaoLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header bg-warning">
-                        <h5 class="modal-title" id="modalConfirmarExclusaoLabel">Confirmar Exclusão</h5>
+                        <h5 class="modal-title">Confirmar Exclusão</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
@@ -128,19 +127,16 @@ function mostrarModalConfirmacaoExclusao(onConfirm) {
                 </div>
             </div>
         </div>`;
+
     document.body.insertAdjacentHTML('beforeend', modalHtml);
-    var modal = new bootstrap.Modal(document.getElementById('modalConfirmarExclusao'));
+    const modal = new bootstrap.Modal(document.getElementById('modalConfirmarExclusao'));
     modal.show();
 
     document.getElementById('btnConfirmarExclusao').onclick = function () {
-        // // Backend: Chamada para exclusão deve ser feita aqui, antes ou depois do modal ser fechado
-        // // $.ajax({ url: '/clientes/' + id, type: 'DELETE' }).done(function(resp) { ... });
-        // Só executa o callback após o modal ser fechado
         modal.hide();
         document.getElementById('modalConfirmarExclusao').addEventListener('hidden.bs.modal', function handler() {
             removerModalExistente('modalConfirmarExclusao');
             if (typeof onConfirm === 'function') onConfirm();
-            // Remove o event listener após execução
             document.getElementById('modalConfirmarExclusao').removeEventListener('hidden.bs.modal', handler);
         });
     };
